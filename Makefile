@@ -72,16 +72,18 @@ test-debug: ## run tests quickly with the default Python
 	poetry run pytest --pdb
 
 test-coverage: clean ## check code coverage quickly with the default Python
-	PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html --html=test-results.html --self-contained-html
-	$(BROWSER) htmlcov/index.html
+	mkdir -p ./test_results \
+	&& PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html
+	mv htmlcov ./test_results/
+	$(BROWSER) test_results/index.html
 
 test-robot: clean
-	mkdir -p ./test_results \
-	&& cd ./test_results \
-	&& PYTHONPATH=../src poetry run robot ../tests/robot/
-	$(BROWSER) ./test_results/report.html
+	mkdir -p ./test_results/robot \
+	&& cd ./test_results/robot \
+	&& PYTHONPATH=../../src poetry run robot ../../tests/robot/
+	$(BROWSER) ./test_results/robot/report.html
 
 build: clean ## builds source and wheel package
 	poetry build
 
-cibuild: test test-robot build
+cibuild: test-coverage test-robot build
