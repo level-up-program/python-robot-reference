@@ -76,6 +76,7 @@ test-coverage: clean ## check code coverage quickly with the default Python
 
 test-robot: clean
 	poetry run robot tests/test-acceptance.rst
+	$(BROWSER) report.html
 
 build: clean ## builds source and wheel package
 	poetry build
