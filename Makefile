@@ -47,6 +47,8 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr htmlcov/
 	rm -f *report.html
 	rm -f log.html
+	rm -f test-results.html
+	rm -f output.xml
 
 bootstrap:
 	poetry install
@@ -69,11 +71,11 @@ test-debug: ## run tests quickly with the default Python
 	poetry run pytest --pdb
 
 test-coverage: clean ## check code coverage quickly with the default Python
-	PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html --html=report.html --self-contained-html
+	PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html --html=test-results.html --self-contained-html
 	$(BROWSER) htmlcov/index.html
 
-test-robot:
-	poetry run robot tests/QuickStart.rst
+test-robot: clean
+	poetry run robot tests/test-acceptance.rst
 
 build: clean ## builds source and wheel package
 	poetry build
