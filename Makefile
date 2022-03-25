@@ -84,4 +84,4 @@ test-robot: clean
 build: clean ## builds source and wheel package
 	poetry build
 
-cibuild: test build
+cibuild: test test-robot build
