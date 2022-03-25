@@ -45,6 +45,7 @@ clean-pyc: ## remove Python file artifacts
 clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
+	rm -fr test_results/
 	rm -f *report.html
 	rm -f log.html
 	rm -f test-results.html
@@ -75,8 +76,10 @@ test-coverage: clean ## check code coverage quickly with the default Python
 	$(BROWSER) htmlcov/index.html
 
 test-robot: clean
-	poetry run robot tests/test-acceptance.rst
-	$(BROWSER) report.html
+	mkdir -p ./test_results \
+	&& cd ./test_results \
+	&& PYTHONPATH=../src poetry run robot ../tests/robot/
+	$(BROWSER) ./test_results/report.html
 
 build: clean ## builds source and wheel package
 	poetry build
