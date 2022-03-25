@@ -4,6 +4,7 @@ import calculator
 TEST_NUMBER_1 = 50
 TEST_NUMBER_2 = 70
 
+
 class TestCalculator(TestCase):
     def test_add(self):
         calc = calculator.Calculator()

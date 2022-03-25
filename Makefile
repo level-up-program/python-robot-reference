@@ -57,7 +57,7 @@ console:
 	poetry shell
 
 lint: ## check style with flake8
-	peotry run flake8 --max-line-length=120 --ignore E501 calculator tests
+	poetry run flake8 --max-line-length=120 --ignore E501 src tests
 
 test: ## run tests quickly with the default Python
 	poetry run pytest --html=report.html --self-contained-html
