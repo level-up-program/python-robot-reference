@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.10.2 on darwin)" generated="20220324 20:58:10.367" rpa="false" schemaversion="3">
+<suite id="s1" name="QuickStart" source="/Users/jpwhite/Code/python-reference/tests/QuickStart.rst">
+<kw name="Clear login database" type="SETUP">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220324 20:58:10.386" level="INFO" html="true">File '&lt;a href="file:///var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt"&gt;/var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20220324 20:58:10.386" endtime="20220324 20:58:10.386"/>
+</kw>
+<status status="PASS" starttime="20220324 20:58:10.386" endtime="20220324 20:58:10.386"/>
+</kw>
+<test id="s1-t1" name="User can create an account and log in" line="2">
+<kw name="Create valid user">
+<arg>fred</arg>
+<arg>P4ssw0rd</arg>
+<kw name="Create user">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.388" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.388" endtime="20220324 20:58:10.388"/>
+</kw>
+<kw name="Status should be">
+<arg>SUCCESS</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.390" endtime="20220324 20:58:10.390"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.387" endtime="20220324 20:58:10.391"/>
+</kw>
+<kw name="Attempt to Login with Credentials">
+<arg>fred</arg>
+<arg>P4ssw0rd</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.392" endtime="20220324 20:58:10.392"/>
+</kw>
+<kw name="Status Should Be">
+<arg>Logged In</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.394" endtime="20220324 20:58:10.394"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220324 20:58:10.395" level="INFO" html="true">File '&lt;a href="file:///var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt"&gt;/var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20220324 20:58:10.395" endtime="20220324 20:58:10.395"/>
+</kw>
+<status status="PASS" starttime="20220324 20:58:10.395" endtime="20220324 20:58:10.395"/>
+</kw>
+<tag>example</tag>
+<tag>quickstart</tag>
+<tag>smoke</tag>
+<status status="FAIL" starttime="20220324 20:58:10.386" endtime="20220324 20:58:10.395">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</status>
+</test>
+<test id="s1-t2" name="User cannot log in with bad password" line="7">
+<kw name="Create valid user">
+<arg>betty</arg>
+<arg>P4ssw0rd</arg>
+<kw name="Create user">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.397" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.397" endtime="20220324 20:58:10.397"/>
+</kw>
+<kw name="Status should be">
+<arg>SUCCESS</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.399" endtime="20220324 20:58:10.399"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.396" endtime="20220324 20:58:10.400"/>
+</kw>
+<kw name="Attempt to Login with Credentials">
+<arg>betty</arg>
+<arg>wrong</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.401" endtime="20220324 20:58:10.401"/>
+</kw>
+<kw name="Status Should Be">
+<arg>Access Denied</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.403" endtime="20220324 20:58:10.403"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220324 20:58:10.403" level="INFO" html="true">File '&lt;a href="file:///var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt"&gt;/var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20220324 20:58:10.403" endtime="20220324 20:58:10.403"/>
+</kw>
+<status status="PASS" starttime="20220324 20:58:10.403" endtime="20220324 20:58:10.403"/>
+</kw>
+<tag>example</tag>
+<tag>quickstart</tag>
+<tag>smoke</tag>
+<status status="FAIL" starttime="20220324 20:58:10.395" endtime="20220324 20:58:10.403">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</status>
+</test>
+<test id="s1-t3" name="User can change password" line="12">
+<kw name="Given a user has a valid account">
+<kw name="Create valid user">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Create user">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.406" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.406" endtime="20220324 20:58:10.406"/>
+</kw>
+<kw name="Status should be">
+<arg>SUCCESS</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.407" endtime="20220324 20:58:10.407"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.404" endtime="20220324 20:58:10.408"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.404" endtime="20220324 20:58:10.408"/>
+</kw>
+<kw name="When she changes her password">
+<status status="NOT RUN" starttime="20220324 20:58:10.408" endtime="20220324 20:58:10.408"/>
+</kw>
+<kw name="Then she can log in with the new password">
+<status status="NOT RUN" starttime="20220324 20:58:10.408" endtime="20220324 20:58:10.408"/>
+</kw>
+<kw name="And she cannot use the old password anymore">
+<status status="NOT RUN" starttime="20220324 20:58:10.408" endtime="20220324 20:58:10.408"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220324 20:58:10.409" level="INFO" html="true">File '&lt;a href="file:///var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt"&gt;/var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20220324 20:58:10.409" endtime="20220324 20:58:10.409"/>
+</kw>
+<status status="PASS" starttime="20220324 20:58:10.409" endtime="20220324 20:58:10.409"/>
+</kw>
+<tag>example</tag>
+<tag>quickstart</tag>
+<tag>smoke</tag>
+<status status="FAIL" starttime="20220324 20:58:10.404" endtime="20220324 20:58:10.409">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</status>
+</test>
+<test id="s1-t4" name="Invalid password" line="18">
+<kw name="Creating user with invalid password should fail">
+<arg>abCD5</arg>
+<arg>${PWD INVALID LENGTH}</arg>
+<kw name="Create user">
+<arg>example</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.411" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.411" endtime="20220324 20:58:10.411"/>
+</kw>
+<kw name="Status should be">
+<arg>Creating user failed: ${error}</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.413" endtime="20220324 20:58:10.413"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.410" endtime="20220324 20:58:10.413"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arg>abCD567890123</arg>
+<arg>${PWD INVALID LENGTH}</arg>
+<kw name="Create user">
+<arg>example</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.415" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.415" endtime="20220324 20:58:10.415"/>
+</kw>
+<kw name="Status should be">
+<arg>Creating user failed: ${error}</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.417" endtime="20220324 20:58:10.417"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.413" endtime="20220324 20:58:10.417"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arg>123DEFG</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+<kw name="Create user">
+<arg>example</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.419" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.419" endtime="20220324 20:58:10.419"/>
+</kw>
+<kw name="Status should be">
+<arg>Creating user failed: ${error}</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.420" endtime="20220324 20:58:10.420"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.417" endtime="20220324 20:58:10.421"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arg>abcd56789</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+<kw name="Create user">
+<arg>example</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.422" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.422" endtime="20220324 20:58:10.422"/>
+</kw>
+<kw name="Status should be">
+<arg>Creating user failed: ${error}</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.424" endtime="20220324 20:58:10.424"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.421" endtime="20220324 20:58:10.424"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arg>AbCdEfGh</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+<kw name="Create user">
+<arg>example</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.426" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.426" endtime="20220324 20:58:10.426"/>
+</kw>
+<kw name="Status should be">
+<arg>Creating user failed: ${error}</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.427" endtime="20220324 20:58:10.427"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.424" endtime="20220324 20:58:10.427"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<arg>abCD56+</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+<kw name="Create user">
+<arg>example</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.429" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.429" endtime="20220324 20:58:10.429"/>
+</kw>
+<kw name="Status should be">
+<arg>Creating user failed: ${error}</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.431" endtime="20220324 20:58:10.431"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.428" endtime="20220324 20:58:10.431"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220324 20:58:10.432" level="INFO" html="true">File '&lt;a href="file:///var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt"&gt;/var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20220324 20:58:10.431" endtime="20220324 20:58:10.432"/>
+</kw>
+<status status="PASS" starttime="20220324 20:58:10.431" endtime="20220324 20:58:10.432"/>
+</kw>
+<tag>example</tag>
+<tag>quickstart</tag>
+<tag>smoke</tag>
+<status status="FAIL" starttime="20220324 20:58:10.409" endtime="20220324 20:58:10.432">Several failures occurred:
+
+1) No keyword with name 'Create user' found. Did you mean:
+    Create Valid User
+
+2) No keyword with name 'Create user' found. Did you mean:
+    Create Valid User
+
+3) No keyword with name 'Create user' found. Did you mean:
+    Create Valid User
+
+4) No keyword with name 'Create user' found. Did you mean:
+    Create Valid User
+
+5) No keyword with name 'Create user' found. Did you mean:
+    Create Valid User
+
+6) No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</status>
+</test>
+<test id="s1-t5" name="User status is stored in database" line="72">
+<kw name="Create valid user">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<kw name="Create user">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<msg timestamp="20220324 20:58:10.434" level="FAIL">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</msg>
+<status status="FAIL" starttime="20220324 20:58:10.434" endtime="20220324 20:58:10.434"/>
+</kw>
+<kw name="Status should be">
+<arg>SUCCESS</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.436" endtime="20220324 20:58:10.436"/>
+</kw>
+<status status="FAIL" starttime="20220324 20:58:10.432" endtime="20220324 20:58:10.436"/>
+</kw>
+<kw name="Database Should Contain">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<arg>Inactive</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.436" endtime="20220324 20:58:10.436"/>
+</kw>
+<kw name="Login">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.436" endtime="20220324 20:58:10.436"/>
+</kw>
+<kw name="Database Should Contain">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<arg>Active</arg>
+<status status="NOT RUN" starttime="20220324 20:58:10.436" endtime="20220324 20:58:10.436"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" library="OperatingSystem">
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<msg timestamp="20220324 20:58:10.437" level="INFO" html="true">File '&lt;a href="file:///var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt"&gt;/var/folders/lb/lwb172s50m12fdt180d8ltn80000gn/T/robotframework-quickstart-db.txt&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20220324 20:58:10.437" endtime="20220324 20:58:10.437"/>
+</kw>
+<status status="PASS" starttime="20220324 20:58:10.437" endtime="20220324 20:58:10.437"/>
+</kw>
+<tag>database</tag>
+<tag>quickstart</tag>
+<tag>variables</tag>
+<status status="FAIL" starttime="20220324 20:58:10.432" endtime="20220324 20:58:10.437">No keyword with name 'Create user' found. Did you mean:
+    Create Valid User</status>
+</test>
+<status status="FAIL" starttime="20220324 20:58:10.368" endtime="20220324 20:58:10.437"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">database</stat>
+<stat pass="0" fail="4" skip="0">example</stat>
+<stat pass="0" fail="5" skip="0">quickstart</stat>
+<stat pass="0" fail="4" skip="0">smoke</stat>
+<stat pass="0" fail="1" skip="0">variables</stat>
+</tag>
+<suite>
+<stat pass="0" fail="5" skip="0" id="s1" name="QuickStart">QuickStart</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220324 20:58:10.385" level="ERROR">Error in file '/Users/jpwhite/Code/python-reference/tests/QuickStart.rst' on line 28: Library 'lib/LoginLibrary.py' does not exist.</msg>
+</errors>
+</robot>
