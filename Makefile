@@ -53,7 +53,7 @@ bootstrap:
 
 setup: clean bootstrap
 
-update:
+update: clean
 	poetry update
 
 console:
@@ -78,4 +78,4 @@ test-robot:
 build: clean ## builds source and wheel package
 	poetry build
 
-cibuild: lint test build
+cibuild: test build

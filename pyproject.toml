@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "python-reference-app"
+name = "calculator"
 version = "0.1.0"
 description = "A simple calculator application"
 authors = ["JP White <jpwhite3@gmail.com>"]
