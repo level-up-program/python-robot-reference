@@ -40,10 +40,13 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
+	find . -name '.pytest_cache' -exec rm -fr {} +
 
 clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
+	rm -f *report.html
+	rm -f log.html
 
 bootstrap:
 	poetry install
@@ -59,15 +62,14 @@ console:
 lint: ## check style with flake8
 	poetry run flake8 --max-line-length=120 --ignore E501 src tests
 
-test: ## run tests quickly with the default Python
-	poetry run pytest --html=report.html --self-contained-html
-	$(BROWSER) report.html
+test: clean ## run tests quickly with the default Python
+	poetry run pytest
 
 test-debug: ## run tests quickly with the default Python
 	poetry run pytest --pdb
 
-test-coverage: ## check code coverage quickly with the default Python
-	PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html
+test-coverage: clean ## check code coverage quickly with the default Python
+	PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html --html=report.html --self-contained-html
 	$(BROWSER) htmlcov/index.html
 
 test-robot:
