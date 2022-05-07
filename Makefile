@@ -83,6 +83,8 @@ test-robot: clean
 	&& PYTHONPATH=../../src poetry run robot ../../tests/robot/
 	$(BROWSER) ./test_results/robot/report.html
 
+test-all: test-coverage test-robot
+
 build: clean ## builds source and wheel package
 	poetry build
 
