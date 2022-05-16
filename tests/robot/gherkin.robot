@@ -1,33 +1,24 @@
 *** Settings ***
 Documentation     Example test case using the gherkin syntax.
-...
-...               This test has a workflow similar to the keyword-driven
-...               examples. The difference is that the keywords use higher
-...               abstraction level and their arguments are embedded into
-...               the keyword names.
-...
-...               This kind of _gherkin_ syntax has been made popular by
-...               [http://cukes.info|Cucumber]. It works well especially when
-...               tests act as examples that need to be easily understood also
-...               by the business people.
-Library           CalculatorLibrary.py
+Library           GameControllerLibrary.py
 
 *** Test Cases ***
-Addition operation works correctly
-    Given calculator has been cleared
-    When provided integers "1,2"
-    and asked to calculate the sum
-    Then result is "3"
+Game controller initialized with player name
+    Given controller has been initialized
+    When player is created with name "ArbitraryName"
+    Then actual player name is "ArbitraryName"
+
+Game controller initialized without player name
+    Given controller has been initialized
+    When player is created with name ""
+    Then actual player name is "Player"
 
 *** Keywords ***
-Calculator has been cleared
-    Clear
+Controller has been initialized
+    Initialize controller
 
-Provided integers "${expression}"
-    Enters values    ${expression}
+Player is created with name "${provided}"
+    Create player with name   ${provided}
 
-Asked to calculate the sum
-    Add
-
-Result is "${result}"
-    Result should be    ${result}
+Actual player name is "${actual}"
+    Player name should be   ${actual}
