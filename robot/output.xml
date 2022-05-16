@@ -1,116 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.10.2 on linux)" generated="20220325 23:24:28.569" rpa="false" schemaversion="3">
-<suite id="s1" name="Robot" source="/home/runner/work/python-reference/python-reference/tests/robot">
-<suite id="s1-s1" name="Data Driven" source="/home/runner/work/python-reference/python-reference/tests/robot/data_driven.robot">
-<test id="s1-s1-t1" name="Addition" line="17">
-<kw name="Calculate">
-<arg>12,2</arg>
-<arg>14</arg>
-<kw name="Enters Values" library="CalculatorLibrary">
-<arg>${expression}</arg>
-<status status="PASS" starttime="20220325 23:24:28.592" endtime="20220325 23:24:28.593"/>
+<robot generator="Robot 5.0 (Python 3.10.4 on linux)" generated="20220516 17:41:36.538" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot" source="/home/runner/work/python-robot-reference/python-robot-reference/tests/robot">
+<suite id="s1-s1" name="Data Driven" source="/home/runner/work/python-robot-reference/python-robot-reference/tests/robot/data_driven.robot">
+<test id="s1-s1-t1" name="Provided player name" line="7">
+<kw name="Start new game with player">
+<arg>Arbitrary</arg>
+<arg>Arbitrary</arg>
+<kw name="Initialize Controller" library="GameControllerLibrary">
+<status status="PASS" starttime="20220516 17:41:36.563" endtime="20220516 17:41:36.564"/>
 </kw>
-<kw name="Add" library="CalculatorLibrary">
-<status status="PASS" starttime="20220325 23:24:28.593" endtime="20220325 23:24:28.593"/>
+<kw name="Create Player With Name" library="GameControllerLibrary">
+<arg>${provided}</arg>
+<status status="PASS" starttime="20220516 17:41:36.564" endtime="20220516 17:41:36.564"/>
 </kw>
-<kw name="Result Should Be" library="CalculatorLibrary">
-<arg>${expected}</arg>
-<status status="PASS" starttime="20220325 23:24:28.593" endtime="20220325 23:24:28.593"/>
+<kw name="Player Name Should Be" library="GameControllerLibrary">
+<arg>${actual}</arg>
+<status status="PASS" starttime="20220516 17:41:36.564" endtime="20220516 17:41:36.564"/>
 </kw>
-<kw name="Clear" library="CalculatorLibrary">
-<status status="PASS" starttime="20220325 23:24:28.593" endtime="20220325 23:24:28.593"/>
+<status status="PASS" starttime="20220516 17:41:36.563" endtime="20220516 17:41:36.564"/>
 </kw>
-<status status="PASS" starttime="20220325 23:24:28.592" endtime="20220325 23:24:28.593"/>
-</kw>
-<kw name="Calculate">
-<arg>2,-3</arg>
-<arg>-1</arg>
-<kw name="Enters Values" library="CalculatorLibrary">
-<arg>${expression}</arg>
-<status status="PASS" starttime="20220325 23:24:28.594" endtime="20220325 23:24:28.594"/>
-</kw>
-<kw name="Add" library="CalculatorLibrary">
-<status status="PASS" starttime="20220325 23:24:28.594" endtime="20220325 23:24:28.594"/>
-</kw>
-<kw name="Result Should Be" library="CalculatorLibrary">
-<arg>${expected}</arg>
-<status status="PASS" starttime="20220325 23:24:28.594" endtime="20220325 23:24:28.594"/>
-</kw>
-<kw name="Clear" library="CalculatorLibrary">
-<status status="PASS" starttime="20220325 23:24:28.594" endtime="20220325 23:24:28.594"/>
-</kw>
-<status status="PASS" starttime="20220325 23:24:28.593" endtime="20220325 23:24:28.594"/>
-</kw>
-<status status="PASS" starttime="20220325 23:24:28.591" endtime="20220325 23:24:28.595"/>
+<status status="PASS" starttime="20220516 17:41:36.562" endtime="20220516 17:41:36.564"/>
 </test>
-<doc>Example test cases using the data-driven testing approach.
-
-The _data-driven_ style works well when you need to repeat
-the same workflow multiple times.
-
-Tests use ``Calculate`` keyword created in this file, that in
-turn uses keywords in ``CalculatorLibrary.py``. An exception
-is the last test that has a custom _template keyword_.
-
-Notice that one of these tests fails on purpose to show how
-failures look like.</doc>
-<status status="PASS" starttime="20220325 23:24:28.588" endtime="20220325 23:24:28.595"/>
-</suite>
-<suite id="s1-s2" name="Gherkin" source="/home/runner/work/python-reference/python-reference/tests/robot/gherkin.robot">
-<test id="s1-s2-t1" name="Addition operation works correctly" line="16">
-<kw name="Given calculator has been cleared">
-<kw name="Clear" library="CalculatorLibrary">
-<status status="PASS" starttime="20220325 23:24:28.599" endtime="20220325 23:24:28.599"/>
+<test id="s1-s1-t2" name="Blank player name" line="8">
+<kw name="Start new game with player">
+<arg>${EMPTY}</arg>
+<arg>Player</arg>
+<kw name="Initialize Controller" library="GameControllerLibrary">
+<status status="PASS" starttime="20220516 17:41:36.566" endtime="20220516 17:41:36.566"/>
 </kw>
-<status status="PASS" starttime="20220325 23:24:28.598" endtime="20220325 23:24:28.599"/>
+<kw name="Create Player With Name" library="GameControllerLibrary">
+<arg>${provided}</arg>
+<status status="PASS" starttime="20220516 17:41:36.566" endtime="20220516 17:41:36.566"/>
 </kw>
-<kw name="When provided integers &quot;1,2&quot;" sourcename="Provided integers &quot;${expression}&quot;">
-<kw name="Enters Values" library="CalculatorLibrary">
-<arg>${expression}</arg>
-<status status="PASS" starttime="20220325 23:24:28.599" endtime="20220325 23:24:28.599"/>
+<kw name="Player Name Should Be" library="GameControllerLibrary">
+<arg>${actual}</arg>
+<status status="PASS" starttime="20220516 17:41:36.566" endtime="20220516 17:41:36.566"/>
 </kw>
-<status status="PASS" starttime="20220325 23:24:28.599" endtime="20220325 23:24:28.599"/>
+<status status="PASS" starttime="20220516 17:41:36.565" endtime="20220516 17:41:36.566"/>
 </kw>
-<kw name="and asked to calculate the sum">
-<kw name="Add" library="CalculatorLibrary">
-<status status="PASS" starttime="20220325 23:24:28.600" endtime="20220325 23:24:28.600"/>
-</kw>
-<status status="PASS" starttime="20220325 23:24:28.599" endtime="20220325 23:24:28.600"/>
-</kw>
-<kw name="Then result is &quot;3&quot;" sourcename="Result is &quot;${result}&quot;">
-<kw name="Result Should Be" library="CalculatorLibrary">
-<arg>${result}</arg>
-<status status="PASS" starttime="20220325 23:24:28.600" endtime="20220325 23:24:28.600"/>
-</kw>
-<status status="PASS" starttime="20220325 23:24:28.600" endtime="20220325 23:24:28.600"/>
-</kw>
-<status status="PASS" starttime="20220325 23:24:28.598" endtime="20220325 23:24:28.601"/>
+<status status="PASS" starttime="20220516 17:41:36.565" endtime="20220516 17:41:36.567"/>
 </test>
-<doc>Example test case using the gherkin syntax.
-
-This test has a workflow similar to the keyword-driven
-examples. The difference is that the keywords use higher
-abstraction level and their arguments are embedded into
-the keyword names.
-
-This kind of _gherkin_ syntax has been made popular by
-[http://cukes.info|Cucumber]. It works well especially when
-tests act as examples that need to be easily understood also
-by the business people.</doc>
-<status status="PASS" starttime="20220325 23:24:28.596" endtime="20220325 23:24:28.601"/>
+<doc>Example test case using the data-driven (table) syntax.</doc>
+<status status="PASS" starttime="20220516 17:41:36.558" endtime="20220516 17:41:36.567"/>
 </suite>
-<status status="PASS" starttime="20220325 23:24:28.570" endtime="20220325 23:24:28.601"/>
+<suite id="s1-s2" name="Gherkin" source="/home/runner/work/python-robot-reference/python-robot-reference/tests/robot/gherkin.robot">
+<test id="s1-s2-t1" name="Game controller initialized with player name" line="6">
+<kw name="Given controller has been initialized">
+<kw name="Initialize Controller" library="GameControllerLibrary">
+<status status="PASS" starttime="20220516 17:41:36.571" endtime="20220516 17:41:36.571"/>
+</kw>
+<status status="PASS" starttime="20220516 17:41:36.571" endtime="20220516 17:41:36.571"/>
+</kw>
+<kw name="When player is created with name &quot;ArbitraryName&quot;" sourcename="Player is created with name &quot;${provided}&quot;">
+<kw name="Create Player With Name" library="GameControllerLibrary">
+<arg>${provided}</arg>
+<status status="PASS" starttime="20220516 17:41:36.571" endtime="20220516 17:41:36.572"/>
+</kw>
+<status status="PASS" starttime="20220516 17:41:36.571" endtime="20220516 17:41:36.572"/>
+</kw>
+<kw name="Then actual player name is &quot;ArbitraryName&quot;" sourcename="Actual player name is &quot;${actual}&quot;">
+<kw name="Player Name Should Be" library="GameControllerLibrary">
+<arg>${actual}</arg>
+<status status="PASS" starttime="20220516 17:41:36.572" endtime="20220516 17:41:36.572"/>
+</kw>
+<status status="PASS" starttime="20220516 17:41:36.572" endtime="20220516 17:41:36.572"/>
+</kw>
+<status status="PASS" starttime="20220516 17:41:36.570" endtime="20220516 17:41:36.572"/>
+</test>
+<test id="s1-s2-t2" name="Game controller initialized without player name" line="11">
+<kw name="Given controller has been initialized">
+<kw name="Initialize Controller" library="GameControllerLibrary">
+<status status="PASS" starttime="20220516 17:41:36.573" endtime="20220516 17:41:36.574"/>
+</kw>
+<status status="PASS" starttime="20220516 17:41:36.573" endtime="20220516 17:41:36.574"/>
+</kw>
+<kw name="When player is created with name &quot;&quot;" sourcename="Player is created with name &quot;${provided}&quot;">
+<kw name="Create Player With Name" library="GameControllerLibrary">
+<arg>${provided}</arg>
+<status status="PASS" starttime="20220516 17:41:36.574" endtime="20220516 17:41:36.574"/>
+</kw>
+<status status="PASS" starttime="20220516 17:41:36.574" endtime="20220516 17:41:36.574"/>
+</kw>
+<kw name="Then actual player name is &quot;Player&quot;" sourcename="Actual player name is &quot;${actual}&quot;">
+<kw name="Player Name Should Be" library="GameControllerLibrary">
+<arg>${actual}</arg>
+<status status="PASS" starttime="20220516 17:41:36.575" endtime="20220516 17:41:36.575"/>
+</kw>
+<status status="PASS" starttime="20220516 17:41:36.574" endtime="20220516 17:41:36.575"/>
+</kw>
+<status status="PASS" starttime="20220516 17:41:36.573" endtime="20220516 17:41:36.575"/>
+</test>
+<doc>Example test case using the gherkin syntax.</doc>
+<status status="PASS" starttime="20220516 17:41:36.568" endtime="20220516 17:41:36.575"/>
+</suite>
+<status status="PASS" starttime="20220516 17:41:36.538" endtime="20220516 17:41:36.576"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Robot">Robot</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Data Driven">Robot.Data Driven</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s2" name="Gherkin">Robot.Gherkin</stat>
+<stat pass="4" fail="0" skip="0" id="s1" name="Robot">Robot</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Data Driven">Robot.Data Driven</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s2" name="Gherkin">Robot.Gherkin</stat>
 </suite>
 </statistics>
 <errors>
