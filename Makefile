@@ -89,3 +89,6 @@ build: clean ## builds source and wheel package
 	poetry build
 
 cibuild: test-coverage test-robot build
+
+run:
+	poetry run python3 -m levelup

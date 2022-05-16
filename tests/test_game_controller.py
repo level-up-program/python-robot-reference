@@ -1,5 +1,5 @@
 from unittest import TestCase
-from levelup.game_controller import GameController, DEFAULT_PLAYER_NAME
+from levelup.controller import GameController, DEFAULT_PLAYER_NAME
 
 
 class TestGameController(TestCase):
