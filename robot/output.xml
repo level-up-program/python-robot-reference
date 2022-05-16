@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.10.4 on linux)" generated="20220516 17:41:36.538" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0 (Python 3.10.4 on linux)" generated="20220516 18:55:22.717" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot" source="/home/runner/work/python-robot-reference/python-robot-reference/tests/robot">
 <suite id="s1-s1" name="Data Driven" source="/home/runner/work/python-robot-reference/python-robot-reference/tests/robot/data_driven.robot">
 <test id="s1-s1-t1" name="Provided player name" line="7">
@@ -7,93 +7,93 @@
 <arg>Arbitrary</arg>
 <arg>Arbitrary</arg>
 <kw name="Initialize Controller" library="GameControllerLibrary">
-<status status="PASS" starttime="20220516 17:41:36.563" endtime="20220516 17:41:36.564"/>
+<status status="PASS" starttime="20220516 18:55:22.753" endtime="20220516 18:55:22.753"/>
 </kw>
 <kw name="Create Player With Name" library="GameControllerLibrary">
 <arg>${provided}</arg>
-<status status="PASS" starttime="20220516 17:41:36.564" endtime="20220516 17:41:36.564"/>
+<status status="PASS" starttime="20220516 18:55:22.753" endtime="20220516 18:55:22.753"/>
 </kw>
 <kw name="Player Name Should Be" library="GameControllerLibrary">
 <arg>${actual}</arg>
-<status status="PASS" starttime="20220516 17:41:36.564" endtime="20220516 17:41:36.564"/>
+<status status="PASS" starttime="20220516 18:55:22.753" endtime="20220516 18:55:22.754"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.563" endtime="20220516 17:41:36.564"/>
+<status status="PASS" starttime="20220516 18:55:22.752" endtime="20220516 18:55:22.754"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.562" endtime="20220516 17:41:36.564"/>
+<status status="PASS" starttime="20220516 18:55:22.751" endtime="20220516 18:55:22.754"/>
 </test>
 <test id="s1-s1-t2" name="Blank player name" line="8">
 <kw name="Start new game with player">
 <arg>${EMPTY}</arg>
 <arg>Player</arg>
 <kw name="Initialize Controller" library="GameControllerLibrary">
-<status status="PASS" starttime="20220516 17:41:36.566" endtime="20220516 17:41:36.566"/>
+<status status="PASS" starttime="20220516 18:55:22.756" endtime="20220516 18:55:22.756"/>
 </kw>
 <kw name="Create Player With Name" library="GameControllerLibrary">
 <arg>${provided}</arg>
-<status status="PASS" starttime="20220516 17:41:36.566" endtime="20220516 17:41:36.566"/>
+<status status="PASS" starttime="20220516 18:55:22.756" endtime="20220516 18:55:22.757"/>
 </kw>
 <kw name="Player Name Should Be" library="GameControllerLibrary">
 <arg>${actual}</arg>
-<status status="PASS" starttime="20220516 17:41:36.566" endtime="20220516 17:41:36.566"/>
+<status status="PASS" starttime="20220516 18:55:22.757" endtime="20220516 18:55:22.757"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.565" endtime="20220516 17:41:36.566"/>
+<status status="PASS" starttime="20220516 18:55:22.755" endtime="20220516 18:55:22.757"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.565" endtime="20220516 17:41:36.567"/>
+<status status="PASS" starttime="20220516 18:55:22.755" endtime="20220516 18:55:22.757"/>
 </test>
 <doc>Example test case using the data-driven (table) syntax.</doc>
-<status status="PASS" starttime="20220516 17:41:36.558" endtime="20220516 17:41:36.567"/>
+<status status="PASS" starttime="20220516 18:55:22.745" endtime="20220516 18:55:22.758"/>
 </suite>
 <suite id="s1-s2" name="Gherkin" source="/home/runner/work/python-robot-reference/python-robot-reference/tests/robot/gherkin.robot">
 <test id="s1-s2-t1" name="Game controller initialized with player name" line="6">
 <kw name="Given controller has been initialized">
 <kw name="Initialize Controller" library="GameControllerLibrary">
-<status status="PASS" starttime="20220516 17:41:36.571" endtime="20220516 17:41:36.571"/>
+<status status="PASS" starttime="20220516 18:55:22.763" endtime="20220516 18:55:22.763"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.571" endtime="20220516 17:41:36.571"/>
+<status status="PASS" starttime="20220516 18:55:22.763" endtime="20220516 18:55:22.763"/>
 </kw>
 <kw name="When player is created with name &quot;ArbitraryName&quot;" sourcename="Player is created with name &quot;${provided}&quot;">
 <kw name="Create Player With Name" library="GameControllerLibrary">
 <arg>${provided}</arg>
-<status status="PASS" starttime="20220516 17:41:36.571" endtime="20220516 17:41:36.572"/>
+<status status="PASS" starttime="20220516 18:55:22.764" endtime="20220516 18:55:22.764"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.571" endtime="20220516 17:41:36.572"/>
+<status status="PASS" starttime="20220516 18:55:22.763" endtime="20220516 18:55:22.764"/>
 </kw>
 <kw name="Then actual player name is &quot;ArbitraryName&quot;" sourcename="Actual player name is &quot;${actual}&quot;">
 <kw name="Player Name Should Be" library="GameControllerLibrary">
 <arg>${actual}</arg>
-<status status="PASS" starttime="20220516 17:41:36.572" endtime="20220516 17:41:36.572"/>
+<status status="PASS" starttime="20220516 18:55:22.765" endtime="20220516 18:55:22.765"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.572" endtime="20220516 17:41:36.572"/>
+<status status="PASS" starttime="20220516 18:55:22.764" endtime="20220516 18:55:22.765"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.570" endtime="20220516 17:41:36.572"/>
+<status status="PASS" starttime="20220516 18:55:22.762" endtime="20220516 18:55:22.765"/>
 </test>
 <test id="s1-s2-t2" name="Game controller initialized without player name" line="11">
 <kw name="Given controller has been initialized">
 <kw name="Initialize Controller" library="GameControllerLibrary">
-<status status="PASS" starttime="20220516 17:41:36.573" endtime="20220516 17:41:36.574"/>
+<status status="PASS" starttime="20220516 18:55:22.766" endtime="20220516 18:55:22.767"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.573" endtime="20220516 17:41:36.574"/>
+<status status="PASS" starttime="20220516 18:55:22.766" endtime="20220516 18:55:22.767"/>
 </kw>
 <kw name="When player is created with name &quot;&quot;" sourcename="Player is created with name &quot;${provided}&quot;">
 <kw name="Create Player With Name" library="GameControllerLibrary">
 <arg>${provided}</arg>
-<status status="PASS" starttime="20220516 17:41:36.574" endtime="20220516 17:41:36.574"/>
+<status status="PASS" starttime="20220516 18:55:22.767" endtime="20220516 18:55:22.768"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.574" endtime="20220516 17:41:36.574"/>
+<status status="PASS" starttime="20220516 18:55:22.767" endtime="20220516 18:55:22.768"/>
 </kw>
 <kw name="Then actual player name is &quot;Player&quot;" sourcename="Actual player name is &quot;${actual}&quot;">
 <kw name="Player Name Should Be" library="GameControllerLibrary">
 <arg>${actual}</arg>
-<status status="PASS" starttime="20220516 17:41:36.575" endtime="20220516 17:41:36.575"/>
+<status status="PASS" starttime="20220516 18:55:22.768" endtime="20220516 18:55:22.769"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.574" endtime="20220516 17:41:36.575"/>
+<status status="PASS" starttime="20220516 18:55:22.768" endtime="20220516 18:55:22.769"/>
 </kw>
-<status status="PASS" starttime="20220516 17:41:36.573" endtime="20220516 17:41:36.575"/>
+<status status="PASS" starttime="20220516 18:55:22.766" endtime="20220516 18:55:22.769"/>
 </test>
 <doc>Example test case using the gherkin syntax.</doc>
-<status status="PASS" starttime="20220516 17:41:36.568" endtime="20220516 17:41:36.575"/>
+<status status="PASS" starttime="20220516 18:55:22.759" endtime="20220516 18:55:22.769"/>
 </suite>
-<status status="PASS" starttime="20220516 17:41:36.538" endtime="20220516 17:41:36.576"/>
+<status status="PASS" starttime="20220516 18:55:22.718" endtime="20220516 18:55:22.770"/>
 </suite>
 <statistics>
 <total>
