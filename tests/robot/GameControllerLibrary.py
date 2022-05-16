@@ -1,4 +1,4 @@
-from levelup.game_controller import GameController
+from levelup.controller import GameController
 
 
 class GameControllerLibrary:
