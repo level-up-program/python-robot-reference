@@ -54,13 +54,8 @@ clean-test: ## remove test and coverage artifacts
 bootstrap:
 	poetry install
 
-setup: clean bootstrap
-
-update: clean
-	poetry update
-
-console:
-	poetry shell
+build: clean ## builds source and wheel package
+	poetry build
 
 lint: ## check style with flake8
 	poetry run flake8 --max-line-length=120 --ignore E501 src tests
@@ -75,20 +70,17 @@ test-coverage: clean ## check code coverage quickly with the default Python
 	mkdir -p ./test_results \
 	&& PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html
 	mv htmlcov ./test_results/
-	$(BROWSER) test_results/index.html
+	- $(BROWSER) test_results/index.html
 
-test-robot: clean
+test-acceptance: clean
 	mkdir -p ./test_results/robot \
 	&& cd ./test_results/robot \
 	&& PYTHONPATH=../../src poetry run robot ../../tests/robot/
-	$(BROWSER) ./test_results/robot/report.html
+	- $(BROWSER) ./test_results/robot/report.html
 
-test-all: test-coverage test-robot
+test-all: test-coverage test-acceptance
 
-build: clean ## builds source and wheel package
-	poetry build
-
-cibuild: test-coverage test-robot build
+cibuild: test-coverage test-acceptance build
 
 run:
 	poetry run python3 -m levelup
