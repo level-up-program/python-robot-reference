@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from levelup.character import Player
 
 DEFAULT_PLAYER_NAME = "Player"
+ARBITRARY_INVALID_INITIALIZED_POSITION = (-1,-1)
 
 
 class Direction(Enum):
@@ -16,7 +17,7 @@ class Direction(Enum):
 class GameStatus:
     running: bool = False
     player: Player = Player(DEFAULT_PLAYER_NAME)
-
+    current_position: tuple = ARBITRARY_INVALID_INITIALIZED_POSITION
 
 class GameController:
     status: GameStatus
@@ -31,3 +32,7 @@ class GameController:
 
     def move(self, direction: Direction) -> None:
         print(f"Moved {direction.name}")
+
+    def set_character_position(self, xycoordinates: tuple) -> None:
+        print(f"Set character position state for testing")
+
