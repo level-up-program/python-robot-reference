@@ -75,7 +75,7 @@ test-coverage: clean ## check code coverage quickly with the default Python
 test-acceptance: clean
 	mkdir -p ./test_results/robot \
 	&& cd ./test_results/robot \
-	&& PYTHONPATH=../../src poetry run robot ../../tests/robot/
+	&& PYTHONPATH=../../src poetry run robot --loglevel DEBUG:INFO ../../tests/robot/
 	- $(BROWSER) ./test_results/robot/report.html
 
 test-all: test-coverage test-acceptance

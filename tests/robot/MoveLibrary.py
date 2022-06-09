@@ -1,4 +1,3 @@
-from email.errors import StartBoundaryNotFoundDefect
 from levelup.controller import GameController
 from levelup.controller import Direction
 
