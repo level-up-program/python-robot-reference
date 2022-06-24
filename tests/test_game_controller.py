@@ -1,19 +1,19 @@
 from unittest import TestCase
-from levelup.controller import GameController, DEFAULT_PLAYER_NAME
+from levelup.controller import GameController, DEFAULT_CHARACTER_NAME
 
 
 class TestGameController(TestCase):
     def test_init(self):
         test_controller = GameController()
-        self.assertEqual(DEFAULT_PLAYER_NAME, test_controller.status.player.name)
+        self.assertEqual(DEFAULT_CHARACTER_NAME, test_controller.status.character.name)
 
-    def test_create_default_player(self):
+    def test_create_default_character(self):
         test_controller = GameController()
-        test_controller.create_player("")
-        self.assertEqual(DEFAULT_PLAYER_NAME, test_controller.status.player.name)
+        test_controller.create_character("")
+        self.assertEqual(DEFAULT_CHARACTER_NAME, test_controller.status.character.name)
 
-    def test_create_player(self):
+    def test_create_character(self):
         test_controller = GameController()
-        expected_player_name = "ArbitraryName"
-        test_controller.create_player(expected_player_name)
-        self.assertEqual(expected_player_name, test_controller.status.player.name)
+        expected_character_name = "ArbitraryName"
+        test_controller.create_character(expected_character_name)
+        self.assertEqual(expected_character_name, test_controller.status.character.name)

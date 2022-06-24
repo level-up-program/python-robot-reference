@@ -2,5 +2,5 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Player:
+class Character:
     name: str

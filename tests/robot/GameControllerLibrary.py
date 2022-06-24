@@ -5,11 +5,11 @@ class GameControllerLibrary:
     def initialize_controller(self):
         self.controller = GameController()
 
-    def create_player_with_name(self, playername):
-        self.controller.create_player(playername)
+    def create_character_with_name(self, charactername):
+        self.controller.create_character(charactername)
 
-    def player_name_should_be(self, expected):
-        if self.controller.status.player.name != expected:
+    def character_name_should_be(self, expected):
+        if self.controller.status.character.name != expected:
             raise AssertionError(
-                "%s != %s" % (self.controller.status.player.name, expected)
+                "%s != %s" % (self.controller.status.character.name, expected)
             )
