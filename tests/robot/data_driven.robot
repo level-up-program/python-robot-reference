@@ -1,16 +1,16 @@
 *** Settings ***
 Documentation     Example test case using the data-driven (table) syntax.
-Test Template     Start new game with player
+Test Template     Start new game with character
 Library           GameControllerLibrary.py
 
 *** Test Cases ***      Provided     Actual
-Provided player name    Arbitrary    Arbitrary
-Blank player name       ${EMPTY}     Player
+Provided character name    Arbitrary    Arbitrary
+Blank character name       ${EMPTY}     Character
 
 
 *** Keywords ***
-Start new game with player
+Start new game with character
     [Arguments]    ${provided}    ${actual}
     Initialize controller
-    Create player with name  ${provided}
-    Player name should be    ${actual}
+    Create character with name  ${provided}
+    Character name should be    ${actual}
