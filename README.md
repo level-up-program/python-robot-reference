@@ -10,3 +10,6 @@ Runs a build
 
 * make test
 Runs tests
+
+* make run
+Runs the program
