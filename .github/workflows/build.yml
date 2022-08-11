@@ -19,9 +19,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip poetry
         make bootstrap
-    - name: Lint with flake8
-      run: |
-        make lint
     - name: Build
       run: |
         make build
@@ -46,30 +43,14 @@ jobs:
         make bootstrap  
 
     - name: Run acceptance tests
-      run: |
-        make test-acceptance 
+      run: make test-acceptance 
 
-    - name: Cache test output
-      uses: actions/cache@v3
-      with:
-        path: ./test-results
-        key: test-output-dir-${{ runner.os }}-${{ github.sha }}
-    
-
-  publish-tests:
-    needs: acceptance-test
-    if: ${{ always() }}
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Fetch cache test output
-      uses: actions/cache@v3
-      with:
-        path: ./test-results
-        key: test-output-dir-${{ runner.os }}-${{ github.sha }}
+    - name: Prepare results
+      if: always()
+      run: make prepare-results
 
     - name: Publish Tests
+      if: always()
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
