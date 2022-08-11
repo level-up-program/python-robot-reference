@@ -4,9 +4,8 @@ Test Template     Start new game with character
 Library           GameControllerLibrary.py
 
 *** Test Cases ***      Provided     Actual
-Provided character name    Arbitrary    Arbitrary
-Blank character name       ${EMPTY}     Character
-Bad test                   SUSAN        SALLY
+Arbitrary name          Trogdor      Trogdor
+Blank character name    ${EMPTY}     Character
 
 
 *** Keywords ***
