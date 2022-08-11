@@ -48,6 +48,7 @@ jobs:
     - name: Run acceptance tests
       run: |
         make test-acceptance 
+        make prepare-results
 
     - name: Publish Tests
       if: always()
