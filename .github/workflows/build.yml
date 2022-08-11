@@ -49,27 +49,6 @@ jobs:
       run: |
         make test-acceptance 
 
-    - name: Cache test output
-      continue-on-error: true
-      uses: actions/cache@v3
-      with:
-        path: ./test_results
-        key: test-output-dir-${{ github.sha }}
-    
-
-  publish-tests:
-    needs: acceptance-test
-    if: ${{ always() }}
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Fetch cache test output
-      uses: actions/cache@v3
-      with:
-        path: ./test_results
-        key: test-output-dir-${{ github.sha }}
-
     - name: Publish Tests
       uses: peaceiris/actions-gh-pages@v3
       with:
