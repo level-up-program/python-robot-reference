@@ -52,8 +52,8 @@ jobs:
     - name: Cache test output
       uses: actions/cache@v3
       with:
-        path: ./test-results
-        key: test-output-dir-${{ runner.os }}-${{ github.sha }}
+        path: ./test_results
+        key: test-output-dir-${{ github.sha }}
     
 
   publish-tests:
@@ -66,8 +66,8 @@ jobs:
     - name: Fetch cache test output
       uses: actions/cache@v3
       with:
-        path: ./test-results
-        key: test-output-dir-${{ runner.os }}-${{ github.sha }}
+        path: ./test_results
+        key: test-output-dir-${{ github.sha }}
 
     - name: Publish Tests
       uses: peaceiris/actions-gh-pages@v3

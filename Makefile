@@ -70,13 +70,11 @@ test-coverage: clean ## check code coverage quickly with the default Python
 	mkdir -p ./test_results \
 	&& PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html
 	mv htmlcov ./test_results/
-	- $(BROWSER) test_results/index.html
 
 test-acceptance: clean
 	mkdir -p ./test_results/robot \
 	&& cd ./test_results/robot \
 	&& PYTHONPATH=../../src poetry run robot ../../tests/robot/
-	- $(BROWSER) ./test_results/robot/report.html
 
 test-all: test-coverage test-acceptance
 
