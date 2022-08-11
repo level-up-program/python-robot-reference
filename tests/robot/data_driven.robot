@@ -6,6 +6,7 @@ Library           GameControllerLibrary.py
 *** Test Cases ***      Provided     Actual
 Provided character name    Arbitrary    Arbitrary
 Blank character name       ${EMPTY}     Character
+Bad test                   SUSAN        SALLY
 
 
 *** Keywords ***
