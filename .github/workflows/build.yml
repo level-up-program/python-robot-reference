@@ -19,9 +19,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip poetry
         make bootstrap
-    - name: Lint with flake8
-      run: |
-        make lint
     - name: Build
       run: |
         make build
@@ -46,9 +43,11 @@ jobs:
         make bootstrap  
 
     - name: Run acceptance tests
-      run: |
-        make test-acceptance 
-        make prepare-results
+      run: make test-acceptance 
+
+    - name: Prepare results
+      if: always()
+      run: make prepare-results
 
     - name: Publish Tests
       if: always()
