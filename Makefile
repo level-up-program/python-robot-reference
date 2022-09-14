@@ -52,6 +52,8 @@ clean-test: ## remove test and coverage artifacts
 	rm -f output.xml
 
 bootstrap:
+	- python -m pip uninstall distro-info
+	- poetry lock
 	poetry install
 
 build: clean ## builds source and wheel package
