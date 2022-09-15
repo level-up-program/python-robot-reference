@@ -54,7 +54,7 @@ clean-test: ## remove test and coverage artifacts
 bootstrap:
 	- python -m pip uninstall distro-info
 	- poetry lock
-	poetry install
+	poetry install || python -m pip -r requirements.txt
 
 build: clean ## builds source and wheel package
 	poetry build
