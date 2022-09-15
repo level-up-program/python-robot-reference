@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from levelup.character import Character
 
 DEFAULT_CHARACTER_NAME = "Character"
-
+ARBITRARY_INVALID_INITIALIZED_POSITION = (-1,-1)
 
 class Direction(Enum):
     NORTH = "n"
