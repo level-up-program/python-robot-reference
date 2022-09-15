@@ -1,10 +1,9 @@
 from enum import Enum
 from dataclasses import dataclass
-from levelup.character import Player
+from levelup.character import Character
 
-DEFAULT_PLAYER_NAME = "Player"
+DEFAULT_CHARACTER_NAME = "Character"
 ARBITRARY_INVALID_INITIALIZED_POSITION = (-1,-1)
-
 
 class Direction(Enum):
     NORTH = "n"
@@ -16,7 +15,7 @@ class Direction(Enum):
 @dataclass
 class GameStatus:
     running: bool = False
-    player: Player = Player(DEFAULT_PLAYER_NAME)
+    character: Character = Character(DEFAULT_CHARACTER_NAME)
     current_position: tuple = ARBITRARY_INVALID_INITIALIZED_POSITION
 
 class GameController:
@@ -25,10 +24,10 @@ class GameController:
     def __init__(self):
         self.status = GameStatus()
 
-    def create_player(self, player_name: str) -> None:
-        if not player_name:
-            player_name = DEFAULT_PLAYER_NAME
-        self.status.player = Player(player_name)
+    def create_character(self, character_name: str) -> None:
+        if not character_name:
+            character_name = DEFAULT_CHARACTER_NAME
+        self.status.character = Character(character_name)
 
     def move(self, direction: Direction) -> None:
         print(f"Moved {direction.name}")

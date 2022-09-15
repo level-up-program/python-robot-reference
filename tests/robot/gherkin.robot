@@ -3,22 +3,22 @@ Documentation     Example test case using the gherkin syntax.
 Library           GameControllerLibrary.py
 
 *** Test Cases ***
-Game controller initialized with player name
+Game controller initialized with character name
     Given controller has been initialized
-    When player is created with name "ArbitraryName"
-    Then actual player name is "ArbitraryName"
+    When character is created with name "ArbitraryName"
+    Then actual character name is "ArbitraryName"
 
-Game controller initialized without player name
+Game controller initialized without character name
     Given controller has been initialized
-    When player is created with name ""
-    Then actual player name is "Player"
+    When character is created with name ""
+    Then actual character name is "Character"
 
 *** Keywords ***
 Controller has been initialized
     Initialize controller
 
-Player is created with name "${provided}"
-    Create player with name   ${provided}
+Character is created with name "${provided}"
+    Create character with name   ${provided}
 
-Actual player name is "${actual}"
-    Player name should be   ${actual}
+Actual character name is "${actual}"
+    Character name should be   ${actual}

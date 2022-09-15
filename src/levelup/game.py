@@ -17,8 +17,8 @@ class GameUI:
         return response
 
     def start(self):
-        player = self.prompt("Enter player name", lambda x: len(x) > 0)
-        self.game.create_player(player)
+        character = self.prompt("Enter character name", lambda x: len(x) > 0)
+        self.game.create_character(character)
         valid_directions = [x.value for x in Direction]
         while True:
             responce = self.prompt(

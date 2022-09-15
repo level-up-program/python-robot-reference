@@ -1,20 +1,17 @@
 *** Settings ***
-Documentation     
-...               Example test case using the data-driven (table) syntax.
-...               http://arcbotics.com/wp-content/uploads/2015/12/sparki-driver-icon.png
-...
-Test Template     Start new game with player
+Documentation     Example test case using the data-driven (table) syntax.
+Test Template     Start new game with character
 Library           GameControllerLibrary.py
 
 
 *** Test Cases ***      Provided     Actual
-Provided player name    Arbitrary    Arbitrary
-Blank player name       ${EMPTY}     Player
+Arbitrary name          Trogdor      Trogdor
+Blank character name    ${EMPTY}     Character
 
 
 *** Keywords ***
-Start new game with player
+Start new game with character
     [Arguments]    ${provided}    ${actual}
     Initialize controller
-    Create player with name  ${provided}
-    Player name should be    ${actual}
+    Create character with name  ${provided}
+    Character name should be    ${actual}
