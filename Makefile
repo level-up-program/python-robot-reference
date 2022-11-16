@@ -53,30 +53,29 @@ clean-test: ## remove test and coverage artifacts
 
 bootstrap:
 	- python -m pip uninstall distro-info
-	- poetry lock
-	poetry install || python -m pip -r requirements.txt
+	python -m pip install -r requirements.txt
 
 build: clean ## builds source and wheel package
-	poetry build
+	echo "Intentionally not implemented"
 
 lint: ## check style with flake8
-	poetry run flake8 --max-line-length=120 --ignore E501 src tests
+	flake8 --max-line-length=120 --ignore E501 src tests
 
 test: clean ## run tests quickly with the default Python
-	poetry run pytest
+	pytest
 
 test-debug: ## run tests quickly with the default Python
-	poetry run pytest --pdb
+	pytest --pdb
 
 test-coverage: clean ## check code coverage quickly with the default Python
 	mkdir -p ./test_results \
-	&& PYTHONPATH=src poetry run pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html
+	&& PYTHONPATH=src pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html
 	mv htmlcov ./test_results/
 
 test-acceptance: clean
 	mkdir -p ./test_results/robot \
 	&& cd ./test_results/robot \
-	&& PYTHONPATH=../../src poetry run robot ../../tests/robot/
+	&& PYTHONPATH=../../src robot ../../tests/robot/
 
 prepare-results:
 	cp ./test_results/robot/report.html ./test_results/index.html
@@ -86,4 +85,4 @@ test-all: test-coverage test-acceptance
 cibuild: test-coverage test-acceptance build
 
 run:
-	poetry run python3 -m levelup
+	python -m levelup
