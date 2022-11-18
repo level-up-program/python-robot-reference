@@ -1,15 +1,9 @@
-from enum import Enum
 from dataclasses import dataclass
 from levelup.character import Character
+from levelup.map import Direction
 
 DEFAULT_CHARACTER_NAME = "Character"
-ARBITRARY_INVALID_INITIALIZED_POSITION = (-1,-1)
-
-class Direction(Enum):
-    NORTH = "n"
-    SOUTH = "s"
-    EAST = "e"
-    WEST = "w"
+ARBITRARY_INVALID_INITIALIZED_POSITION = (-1, -1)
 
 
 @dataclass
