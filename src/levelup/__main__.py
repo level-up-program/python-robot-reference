@@ -1,8 +1,14 @@
 import sys
-from levelup.game import GameUI
+from levelup.ui import GameApp
 
-try:
-    ui = GameUI()
-    ui.start()
-except KeyboardInterrupt:
-    sys.exit()
+
+def main() -> None:
+    app = GameApp()
+    try:
+        app.start()
+    except KeyboardInterrupt:
+        sys.exit()
+
+
+if __name__ == "__main__":
+    main()

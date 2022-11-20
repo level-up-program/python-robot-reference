@@ -7,4 +7,4 @@ class TestCharacter(TestCase):
         expected_name = "arbitrary"
         testobj = Character(expected_name)
         self.assertEqual(testobj.name, expected_name)
-        self.assertEqual(testobj.current_position, DEFAULT_POSITION)
+        self.assertEqual(testobj.position, DEFAULT_POSITION)

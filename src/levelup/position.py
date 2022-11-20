@@ -12,3 +12,6 @@ class Position:
             self.coordinates[0] == o.coordinates[0]
             and self.coordinates[1] == o.coordinates[1]
         )
+
+    def __str__(self):
+        return f"{self.coordinates}"
