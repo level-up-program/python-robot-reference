@@ -7,6 +7,7 @@ def main() -> None:
     try:
         app.start()
     except KeyboardInterrupt:
+        app.quit()
         sys.exit()
 
 

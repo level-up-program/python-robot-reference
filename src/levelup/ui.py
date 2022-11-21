@@ -2,6 +2,7 @@ import logging
 from typing import Callable
 from levelup.controller import GameController
 from levelup.map import Direction
+from levelup.character import InvalidMoveException
 
 VALID_DIRECTIONS = [x.value for x in Direction]
 
@@ -24,16 +25,25 @@ class GameApp:
         character = self.prompt("Enter character name", lambda x: len(x) > 0)
         self.controller.create_character(character)
 
-    def start(self):
-        self.create_character()
-        self.controller.start_game()
+    def move_loop(self):
         while True:
             response = self.prompt(
                 f"Where would you like to go? {VALID_DIRECTIONS}\n(or ctrl+c to quit)",
                 lambda x: x in VALID_DIRECTIONS,
             )
-            self.controller.move(Direction(response))
-            print(f"You are now on position {self.controller.character.position}")
+            direction = Direction(response)
+            try:
+                self.controller.move(direction)
+            except InvalidMoveException:
+                print(f"You cannot move {direction}")
+            else:
+                print(f"You moved {direction}")
+            print(self.controller.status)
+
+    def start(self):
+        self.create_character()
+        self.controller.start_game()
+        self.move_loop()
 
     def quit(self):
-        logging.info("Calling quit from App")
+        print(f"\n\n{self.controller.status}")

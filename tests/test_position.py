@@ -13,3 +13,13 @@ class TestPosition(TestCase):
         testobj1 = Position(0, 1)
         testobj2 = Position(0, 1)
         self.assertEqual(testobj1, testobj2)
+
+    def test_to_str(self):
+        testobj = Position(0, 1)
+        expected_str_repr = "(0, 1)"
+        self.assertEqual(expected_str_repr, str(testobj))
+
+    def test_equals(self):
+        testobj = Position(0, 1)
+        testobj2 = Position(0, 1)
+        self.assertEqual(testobj, testobj2)
