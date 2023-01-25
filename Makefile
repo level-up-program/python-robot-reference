@@ -85,4 +85,4 @@ test-all: test-coverage test-acceptance
 cibuild: test-coverage test-acceptance build
 
 run:
-	python -m levelup
+	cd src && python -m levelup
