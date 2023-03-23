@@ -17,6 +17,7 @@ class GameStatus:
     running: bool = False
     character: Character = Character(DEFAULT_CHARACTER_NAME)
     current_position: tuple = ARBITRARY_INVALID_INITIALIZED_POSITION
+    move_count: int = 0
 
 class GameController:
     status: GameStatus
