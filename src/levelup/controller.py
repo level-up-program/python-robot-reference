@@ -31,6 +31,7 @@ class GameController:
     def start_game(self):
         if hasattr(self, "character"):
             self.character.enter_map(self.map)
+            self.status.current_position = self.character.position
             self.set_character_position(self.map.starting_position)
         else:
             raise CharacterNotFoundException("Character not found")

@@ -4,14 +4,18 @@ Test Template     Start new game with character
 Library           GameControllerLibrary.py
 
 
-*** Test Cases ***      Provided     Actual
-Arbitrary name          Trogdor      Trogdor
-Blank character name    ${EMPTY}     Character
+*** Test Cases ***      providedCharacterName      characterName      numPositions     startingPositionX    startingPositionY  startingMoveCount
+Arbitrary name          Trogdor                    Trogdor            100              0                    0                  0
+Blank character name    ${EMPTY}                   Character          100              0                    0                  0
 
 
 *** Keywords ***
 Start new game with character
-    [Arguments]    ${provided}    ${actual}
+    [Arguments]    ${providedCharacterName}  ${characterName}  ${numPositions}  ${startingPositionX}  ${startingPositionY}  ${startingMoveCount}
     Initialize controller
-    Create character with name  ${provided}
-    Character name should be    ${actual}
+    Create character with name         ${providedCharacterName}
+    Character name should be           ${characterName}
+    Number of map positions should be  ${numPositions}
+    Starting X coordinate should be    ${startingPositionX}
+    Starting Y coordinate should be    ${startingPositionY}
+    Starting move count should be      ${startingMoveCount}
