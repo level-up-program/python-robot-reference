@@ -7,6 +7,7 @@ from levelup.position import Position
 
 @dataclass
 class GameStatus:
+<<<<<<< HEAD
     move_count: int = 0
     current_position: Position = None
 
@@ -17,6 +18,12 @@ class GameStatus:
 class CharacterNotFoundException(Exception):
     pass
 
+=======
+    running: bool = False
+    character: Character = Character(DEFAULT_CHARACTER_NAME)
+    current_position: tuple = ARBITRARY_INVALID_INITIALIZED_POSITION
+    move_count: int = 0
+>>>>>>> syncpoint-atdd-wired
 
 class GameController:
     status: GameStatus

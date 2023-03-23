@@ -3,6 +3,7 @@ Documentation     Example test case using the data-driven (table) syntax.
 Test Template     Start new game with character
 Library           GameControllerLibrary.py
 
+
 *** Test Cases ***      Provided     Actual
 Arbitrary name          Trogdor      Trogdor
 Blank character name    ${EMPTY}     Character
