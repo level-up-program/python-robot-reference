@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     Example test case using the data-driven (table) syntax.
+Documentation     Test initialization of game.
 Test Template     Start new game with character
 Library           GameControllerLibrary.py
 

@@ -7,8 +7,8 @@ from levelup.position import Position
 
 @dataclass
 class GameStatus:
-<<<<<<< HEAD
     move_count: int = 0
+    running: bool = False
     current_position: Position = None
 
     def __str__(self):
@@ -18,12 +18,6 @@ class GameStatus:
 class CharacterNotFoundException(Exception):
     pass
 
-=======
-    running: bool = False
-    character: Character = Character(DEFAULT_CHARACTER_NAME)
-    current_position: tuple = ARBITRARY_INVALID_INITIALIZED_POSITION
-    move_count: int = 0
->>>>>>> syncpoint-atdd-wired
 
 class GameController:
     status: GameStatus
@@ -31,6 +25,7 @@ class GameController:
 
     def __init__(self):
         self.status = GameStatus()
+        self.character = None
         self.map = GameMap()
 
     def start_game(self):
@@ -47,7 +42,7 @@ class GameController:
         try:
             self.character.move(direction)
         except InvalidMoveException:
-            raise
+            pass
         finally:
             self.status.move_count += 1
             self.status.current_position = self.character.position

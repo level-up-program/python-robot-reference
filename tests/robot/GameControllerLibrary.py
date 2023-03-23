@@ -7,9 +7,10 @@ class GameControllerLibrary:
 
     def create_character_with_name(self, charactername):
         self.controller.create_character(charactername)
+        self.controller.start_game()
 
     def character_name_should_be(self, expected):
-        if self.controller.status.character.name != expected:
+        if self.controller.character.name != expected:
             raise AssertionError(
-                "%s != %s" % (self.controller.status.character.name, expected)
+                "%s != %s" % (self.controller.character.name, expected)
             )

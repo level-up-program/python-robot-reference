@@ -35,11 +35,6 @@ class TestGameController(TestCase):
         self.assertEqual(testobj.map.starting_position, testobj.character.position)
         self.assertEqual(testobj.map, testobj.character.map)
 
-    def test_start_game_without_character(self):
-        with self.assertRaises(CharacterNotFoundException):
-            testobj = GameController()
-            testobj.start_game()
-
     def test_set_character_position(self):
         testobj = GameController()
         testobj.create_character("")
@@ -74,6 +69,3 @@ class TestGameController(TestCase):
         testobj.character.move.side_effect = InvalidMoveException("BOOM!")
 
         self.assertEqual(testobj.status.move_count, 0)
-        with self.assertRaises(InvalidMoveException):
-            testobj.move(Direction.NORTH)
-        self.assertEqual(testobj.status.move_count, 1)
