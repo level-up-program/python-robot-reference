@@ -37,7 +37,7 @@ class GameApp:
             except InvalidMoveException:
                 print(f"You cannot move {direction}")
             else:
-                print(f"You moved {direction}")
+                print(f"You moved {direction.name}")
             print(self.controller.status)
 
     def start(self):

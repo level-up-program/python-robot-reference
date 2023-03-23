@@ -40,13 +40,7 @@ class GameController:
         self.character = Character(character_name)
 
     def move(self, direction: Direction) -> None:
-        try:
-            self.character.move(direction)
-        except InvalidMoveException:
-            pass
-        finally:
-            self.status.move_count += 1
-            self.status.current_position = self.character.position
+        pass
 
     def set_character_position(self, position: Position):
         self.character.position = position

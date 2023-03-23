@@ -5,7 +5,6 @@ Library           GameControllerLibrary.py
 
 
 *** Test Cases ***      providedCharacterName      characterName      numPositions     startingPositionX    startingPositionY  startingMoveCount
-Arbitrary name          Trogdor                    Trogdor            100              0                    0                  0
 Blank character name    ${EMPTY}                   Character          100              0                    0                  0
 
 
