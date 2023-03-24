@@ -9,9 +9,9 @@ class GameControllerLibrary:
         self.controller.create_character(charactername)
 
     def character_name_should_be(self, expected):
-        if self.controller.status.character.name != expected:
+        if self.controller.character.name != expected:
             raise AssertionError(
-                f"{self.controller.status.character.name} != {expected}"
+                f"{self.controller.character.name} != {expected}"
             )
 
     def number_of_map_positions_should_be(self, expected):
