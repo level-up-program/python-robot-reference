@@ -5,5 +5,6 @@ from levelup.controller import GameController
 
 class TestGameController(TestCase):
     def test_init(self):
-        pass
+        testObj = GameController()
+        assert testObj.status != None
         
