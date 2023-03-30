@@ -82,6 +82,8 @@ test-acceptance: clean
 
 prepare-results:
 	cp ./test_results/robot/report.html ./test_results/index.html
+	cp ./test_results/robot/log.html ./test_results/log.html
+	cp ./test_results/robot/output.html ./test_results/output.html
 
 test-all: test-coverage test-acceptance
 
