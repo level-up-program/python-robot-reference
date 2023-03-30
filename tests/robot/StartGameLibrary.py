@@ -1,13 +1,12 @@
 from levelup.controller import GameController
-from robot.libraries.BuiltIn import BuiltIn
 
-class GameControllerLibrary:
+class StartGameLibrary:
     ROBOT_LIBRARY_DOC_FORMAT = 'HTML'
 
     def initialize_controller(self):
         self.controller = GameController()
 
-    def create_character_with_name(self, charactername):
+    def provided_character_with_name(self, charactername):
         self.controller.create_character(charactername)
 
     def character_name_should_be(self, expected):
