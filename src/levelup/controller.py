@@ -1,49 +1,36 @@
 import logging
 from dataclasses import dataclass
-from levelup.character import Character, DEFAULT_CHARACTER_NAME, InvalidMoveException
-from levelup.map import Direction, GameMap
-from levelup.position import Position
+from enum import Enum
 
-
-@dataclass
+#TODO: ADD THINGS YOU NEED FOR STATUS
 class GameStatus:
+    character_name: str = "Character"
     move_count: int = 0
     running: bool = False
-    current_position: Position = None
 
-    def __str__(self):
-        return f"Moved {self.move_count} times, currently on position {self.current_position}"
-
+class Direction(Enum):
+    NORTH = "n"
+    SOUTH = "s"
+    EAST = "e"
+    WEST = "w"
 
 class CharacterNotFoundException(Exception):
     pass
 
+class InvalidMoveException(Exception):
+    pass
 
 class GameController:
     status: GameStatus
-    character: Character
 
     def __init__(self):
         self.status = GameStatus()
-        self.character = None
-        self.map = GameMap()
 
     def start_game(self):
-        if hasattr(self, "character"):
-            self.character.enter_map(self.map)
-            self.status.current_position = self.character.position
-            self.set_character_position(self.map.starting_position)
-        else:
-            raise CharacterNotFoundException("Character not found")
+        pass
 
     def create_character(self, character_name: str) -> None:
-        self.character = Character(character_name)
+        pass
 
     def move(self, direction: Direction) -> None:
         pass
-
-    def set_character_position(self, position: Position):
-        self.character.position = position
-
-    def get_total_positions(self):
-        return self.map.position_count
