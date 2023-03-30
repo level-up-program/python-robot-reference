@@ -1,7 +1,9 @@
 from levelup.controller import GameController
-
+from robot.libraries.BuiltIn import BuiltIn
 
 class GameControllerLibrary:
+    ROBOT_LIBRARY_DOC_FORMAT = 'HTML'
+
     def initialize_controller(self):
         self.controller = GameController()
 
