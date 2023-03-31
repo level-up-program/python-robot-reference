@@ -10,6 +10,9 @@ class TestMap(TestCase):
         testobj = Map()
         self.assertNotEqual(None, testobj.positions)
         self.assertEqual(10, len(testobj.positions))
+
+    def test_init_creates_positions_with_crrect_x_y(self):
+        testobj = Map()
         self.assertEqual(3, testobj.positions[3][0].x)
         self.assertEqual(7, testobj.positions[3][7].y)
 
@@ -39,8 +42,8 @@ class TestMap(TestCase):
 
     def test_calculate_new_position_when_valid_NORTH(self):
         testobj = Map()
-        startingPosition = Position(3,3)
-        expectedPosition = Position(3,4)
+        startingPosition = Position(0,0)
+        expectedPosition = Position(0,1)
         actualPosition = testobj.calculate_new_position(startingPosition, Direction.NORTH)
         self.assertEqual(expectedPosition, actualPosition)
 

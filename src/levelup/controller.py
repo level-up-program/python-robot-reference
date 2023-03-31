@@ -28,7 +28,12 @@ class GameController:
 
     def start_game(self):
         self.map = Map()
-        self.character.enter_map(map)
+        if self.character == None:
+            self.create_character(DEFAULT_CHARACTER_NAME)
+        self.character.enter_map(self.map)
+        self.status.running = True
+        self.status.current_position = (self.character.current_position.x, self.character.current_position.y)
+        self.status.move_count = 0
 
     def create_character(self, character_name: str) -> None:
         if character_name is not None and character_name != "":
@@ -39,15 +44,23 @@ class GameController:
 
     def move(self, direction: Direction) -> None:
         self.character.move(direction)
+        self.status.current_position = (self.character.current_position.x, self.character.current_position.y)
+        self.status.move_count = self.status.move_count + 1
 
     def set_character_position(self, xycoordinates: tuple) -> None:
-        self.character.current_position = Position(xycoordinates[0],xycoordinates[1])
-        self.status.current_position = self.character.current_position
+        x = xycoordinates[0]
+        y = xycoordinates[1]
+        self.character.current_position = Position(x,y)
+        self.status.current_position = xycoordinates
 
     def set_current_move_count(self, move_count: int) -> None:
         self.status.move_count = move_count
 
     def get_total_positions(self) -> int:
         return self.map.size[0]*self.map.size[1]
+    
+    def initalize_game_for_testing(self) -> None:
+        self.create_character("")
+        self.start_game()
 
     

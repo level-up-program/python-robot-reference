@@ -25,6 +25,8 @@ class TestGameController(TestCase):
         
         self.assertIsNotNone(testobj.map)
         self.assertTrue(fake_char.is_enter_map_called)
+        self.assertTrue(testobj.status.running)
+        self.assertEqual(0, testobj.status.move_count)
 
     def test_move_calls_char_move(self):
         testobj = GameController()

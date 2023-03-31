@@ -22,7 +22,7 @@ class Map ():
         self.positions = temp_pos
 
     def is_position_valid(self, position :Position):
-        if position.x > 0 and position.x < self.size[0] and position.y > 0 and position.y < self.size[1]:
+        if position.x >= 0 and position.x < self.size[0] and position.y >= 0 and position.y < self.size[1]:
             return True
         else:
             return False
@@ -39,7 +39,7 @@ class Map ():
         else:
             pass
         
-        if self.is_position_valid(new_position):
+        if self.is_position_valid(new_position) == True:
             return new_position
         else:
             return current_position
