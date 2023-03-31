@@ -1,5 +1,5 @@
 from levelup.position import Position
-from levelup.controller import Direction
+from levelup.direction import Direction
 from levelup.map import Map
 
 class Character:
