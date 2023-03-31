@@ -10,3 +10,4 @@ class TestMap(TestCase):
         self.assertNotEqual(None, testobj.positions)
         self.assertEqual(10, len(testobj.positions))
         self.assertEqual(3, testobj.positions[3][0].x)
+        self.assertEqual(0, testobj.positions[3][0].y)
