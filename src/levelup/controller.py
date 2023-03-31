@@ -1,5 +1,6 @@
 from levelup.character import Character
 from levelup.direction import Direction
+from levelup.map import Map
 
 DEFAULT_CHARACTER_NAME = "Character"
 
@@ -19,12 +20,14 @@ class InvalidMoveException(Exception):
 class GameController:
     status: GameStatus
     character: Character
+    map: Map
 
     def __init__(self):
         self.status = GameStatus()
 
     def start_game(self):
-        pass
+        self.map = Map()
+        self.character.enter_map(map)
 
     def create_character(self, character_name: str) -> None:
         if character_name is not None and character_name != "":
