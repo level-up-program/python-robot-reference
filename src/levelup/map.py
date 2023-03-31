@@ -3,6 +3,8 @@ from levelup.controller import Direction
 
 class Map ():
 
+    starting_position = Position(0,0)
+
     def __init__(self):
         pass
 

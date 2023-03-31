@@ -16,3 +16,4 @@ class Character:
     
     def enter_map(self, map :Map):
         self.map = map
+        self.current_position = self.map.starting_position
