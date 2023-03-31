@@ -14,9 +14,11 @@ class Map ():
     def create_positions(self) -> None:
         temp_pos = []
         for x in range(self.size[0]):
+            y_range = []
             for y in range(self.size[1]):
-                new_pos = Position(0,0)
-                temp_pos.append(new_pos)
+                new_pos = Position(x,y)
+                y_range.append(new_pos)
+            temp_pos.append(y_range)
         self.positions = temp_pos
 
     def calculate_new_position(self, current_position: Position, direction: Direction) -> Position:
