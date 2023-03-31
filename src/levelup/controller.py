@@ -12,6 +12,9 @@ class GameStatus:
     current_position: tuple = (-100,-100)
     move_count: int = 0
 
+    def __str__(self) -> str:
+        return f"{self.character_name} is currently on {self.current_position} and moved {self.move_count} times."
+
 class CharacterNotFoundException(Exception):
     pass
 
