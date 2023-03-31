@@ -29,12 +29,17 @@ class Map ():
 
     def calculate_new_position(self, current_position: Position, direction: Direction) -> Position:
         if direction == Direction.NORTH:
-            return Position(current_position.x, current_position.y + 1)
+            new_position = Position(current_position.x, current_position.y + 1)
         elif direction == Direction.SOUTH:
-            return Position(current_position.x, current_position.y - 1)
+            new_position = Position(current_position.x, current_position.y - 1)
         elif direction == Direction.EAST:
-            return Position(current_position.x + 1, current_position.y)
+            new_position = Position(current_position.x + 1, current_position.y)
         elif direction == Direction.WEST:
-            return Position(current_position.x - 1, current_position.y)
+            new_position = Position(current_position.x - 1, current_position.y)
         else:
             raise InvalidMoveException()
+        
+        if self.is_position_valid(new_position):
+            return new_position
+        else:
+            return current_position
