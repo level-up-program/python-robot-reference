@@ -14,5 +14,5 @@ class Character:
         self.current_position = self.map.calculate_new_position(
             self.current_position, direction)
     
-    def enter_map(map :Map):
-        pass
+    def enter_map(self, map :Map):
+        self.map = map

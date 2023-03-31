@@ -10,9 +10,12 @@ class TestCharacter(TestCase):
         testobj = Character(self.ARBITRARY_NAME)
         self.assertEqual(self.ARBITRARY_NAME, testobj.name)
 
-    def enter_map_sets_map(self):
+    def test_enter_map_sets_map(self):
         testobj = Character(self.ARBITRARY_NAME)
-        self.assertEqual(None, testObj.map)
+        self.assertEqual(None, testobj.map)
+        stubbed_map = FakeMap()
+        testobj.enter_map(stubbed_map)
+        self.assertEqual(stubbed_map, testobj.map)
 
     def test_move_updates_position(self):
         testobj = Character(self.ARBITRARY_NAME)
