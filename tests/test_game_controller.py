@@ -1,6 +1,7 @@
 from unittest import TestCase
 from levelup.controller import GameController
 from fake_character import FakeCharacter
+from levelup.direction import Direction
 
 class TestGameController(TestCase):
     def test_init(self):
@@ -24,5 +25,17 @@ class TestGameController(TestCase):
         
         self.assertIsNotNone(testobj.map)
         self.assertTrue(fake_char.is_enter_map_called)
+
+    def test_move_calls_char_move(self):
+        testobj = GameController()
+        arbitrary_name = "ARBITRARY"
+        fake_char = FakeCharacter(arbitrary_name)
+        testobj.character = fake_char
+        arbitrary_direction = Direction.NORTH
+
+        testobj.move(arbitrary_direction)
+
+        self.assertTrue(fake_char.is_move_called)
+        self.assertEqual(fake_char.last_move_direction, arbitrary_direction)
         
         
