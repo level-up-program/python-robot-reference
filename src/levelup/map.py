@@ -1,6 +1,6 @@
 from levelup.position import Position
 from typing import Tuple
-from levelup.controller import Direction
+from levelup.controller import Direction, InvalidMoveException
 
 class Map ():
 
@@ -28,4 +28,13 @@ class Map ():
             return False
 
     def calculate_new_position(self, current_position: Position, direction: Direction) -> Position:
-        return None
+        if direction == Direction.NORTH:
+            return Position(current_position.x, current_position.y + 1)
+        elif direction == Direction.SOUTH:
+            return Position(current_position.x, current_position.y - 1)
+        elif direction == Direction.EAST:
+            return Position(current_position.x + 1, current_position.y)
+        elif direction == Direction.WEST:
+            return Position(current_position.x - 1, current_position.y)
+        else:
+            raise InvalidMoveException()

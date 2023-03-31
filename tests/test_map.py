@@ -37,4 +37,35 @@ class TestMap(TestCase):
         testobj = Map()
         self.assertFalse(testobj.is_position_valid(Position(11, 10)))
 
+    def test_calculate_new_position_when_valid_NORTH(self):
+        testobj = Map()
+        startingPosition = Position(3,3)
+        expectedPosition = Position(3,4)
+        actualPosition = testobj.calculate_new_position(startingPosition, Direction.NORTH)
+        self.assertEqual(expectedPosition, actualPosition)
+
+    def test_calculate_new_position_when_valid_SOUTH(self):
+        testobj = Map()
+        startingPosition = Position(3, 3)
+        expectedPosition = Position(3, 2)
+        actualPosition = testobj.calculate_new_position(
+            startingPosition, Direction.SOUTH)
+        self.assertEqual(expectedPosition, actualPosition)
+
+    def test_calculate_new_position_when_valid_EAST(self):
+        testobj = Map()
+        startingPosition = Position(3, 3)
+        expectedPosition = Position(4, 3)
+        actualPosition = testobj.calculate_new_position(
+            startingPosition, Direction.EAST)
+        self.assertEqual(expectedPosition, actualPosition)
+
+    def test_calculate_new_position_when_valid_WEST(self):
+        testobj = Map()
+        startingPosition = Position(3, 3)
+        expectedPosition = Position(2, 3)
+        actualPosition = testobj.calculate_new_position(
+            startingPosition, Direction.WEST)
+        self.assertEqual(expectedPosition, actualPosition)
+
     

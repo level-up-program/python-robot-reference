@@ -7,6 +7,12 @@ class Position ():
         self.x = x
         self.y = y
 
+    def __eq__(self, obj):
+        if self.x == obj.x and self.y == obj.y:
+            return True
+        else:
+            return False
+
 
 
     
