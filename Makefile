@@ -103,4 +103,4 @@ ci-test-coverage: clean ## Only use within GitHub Actions
 ci-test-acceptance: clean ## Only use within GitHub Actions
 	mkdir -p ./test_results/robot; \
 	export PYTHONPATH=./src; \
-	./.venv/bin/python3 -m robot src/tests/robot/;
+	./.venv/bin/python3 -m robot ./tests/robot/;
