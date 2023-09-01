@@ -1,3 +1,4 @@
+.ONESHELL:
 .PHONY: clean clean-test clean-pyc clean-build docs help
 .DEFAULT_GOAL := help
 define BROWSER_PYSCRIPT
@@ -55,6 +56,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -f output.xml
 
 bootstrap:
+	- python3 -m pip uninstall distro-info
 	python3 -m pip install -r requirements.txt
 
 build: clean ## builds source and wheel package

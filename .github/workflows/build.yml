@@ -2,7 +2,7 @@ name: Python Build
 
 on:
   push:
-    branches: [ develop, main ]
+    branches: [ develop, main, 'feature/**' ]
   pull_request:
     branches: [ main ]
 
@@ -11,14 +11,15 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
+    
     - name: Install dependencies
       run: make bootstrap
+
     - name: Build
-      run: |
-        make build
+      run: make build
+
     - name: Unit Test and Coverage
-      run: |
-        make test-coverage
+      run: make test-coverage
 
   acceptance-test:
     runs-on: self-hosted
