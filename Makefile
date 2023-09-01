@@ -77,9 +77,8 @@ test-coverage: clean ## check code coverage quickly with the default Python
 	mv htmlcov ./test_results/
 
 test-acceptance: clean
-	mkdir -p ./test_results/robot \
-	&& cd ./test_results/robot \
-	&& PYTHONPATH=../../src python3 -m robot ../../tests/robot/
+	mkdir -p ./test_results/robot; \
+	python3 -m robot --pythonpath=./src --outputdir=./test_results/robot tests/robot/;
 
 prepare-results:
 	cp ./test_results/robot/report.html ./test_results/index.html
