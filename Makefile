@@ -24,10 +24,10 @@ export PRINT_HELP_PYSCRIPT
 BROWSER := python3 -c "$$BROWSER_PYSCRIPT"
 
 help:
-	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
+	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 reqs:
-	poetry export --without-hashes --format=requirements.txt > requirements.txt
+	python3 -m poetry export --without-hashes --format=requirements.txt > requirements.txt
 
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
@@ -55,30 +55,29 @@ clean-test: ## remove test and coverage artifacts
 	rm -f output.xml
 
 bootstrap:
-	- python -m pip uninstall distro-info
-	python -m pip install -r requirements.txt
+	python3 -m pip install -r requirements.txt
 
 build: clean ## builds source and wheel package
 	echo "Intentionally not implemented"
 
 lint: ## check style with flake8
-	flake8 --max-line-length=120 --ignore E501 src tests
+	python3 -m flake8 --max-line-length=120 --ignore E501 src tests
 
 test: clean ## run tests quickly with the default Python
-	pytest
+	python3 -m pytest
 
 test-debug: ## run tests quickly with the default Python
-	pytest --pdb
+	python3 -m pytest --pdb
 
 test-coverage: clean ## check code coverage quickly with the default Python
 	mkdir -p ./test_results \
-	&& PYTHONPATH=src pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html
+	&& PYTHONPATH=src python3 -m pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html --disable-warnings
 	mv htmlcov ./test_results/
 
 test-acceptance: clean
 	mkdir -p ./test_results/robot \
 	&& cd ./test_results/robot \
-	&& PYTHONPATH=../../src robot ../../tests/robot/
+	&& PYTHONPATH=../../src python3 -m robot ../../tests/robot/
 
 prepare-results:
 	cp ./test_results/robot/report.html ./test_results/index.html
@@ -87,7 +86,7 @@ prepare-results:
 
 test-all: test-coverage test-acceptance
 
-cibuild: test-coverage test-acceptance build
+cibuild: test-coverage test-acceptance
 
 run:
-	cd src && python -m levelup
+	cd src && python3 -m levelup
