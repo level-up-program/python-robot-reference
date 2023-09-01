@@ -102,7 +102,7 @@ ci-test-coverage: clean
 	mv htmlcov ./test_results/
 
 ci-test-acceptance: clean
-	mkdir -p ./test_results/robot \
-	&& cd ./test_results/robot; \
+	mkdir -p ./test_results/robot; \
+	cd ./test_results/robot; \
 	source ./.venv/bin/activate; \
-	PYTHONPATH=../../src ./.venv/bin/python3 -m robot ../../tests/robot/
+	PYTHONPATH=../../src python3 -m robot ../../tests/robot/
