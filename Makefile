@@ -96,12 +96,12 @@ ci-bootstrap:
 	source ./.venv/bin/activate; \
 	./.venv/bin/python3 -m pip install -r requirements.txt;
 
-ci-test-coverage: clean ci-bootstrap
+ci-test-coverage: clean
 	mkdir -p ./test_results \
 	&& PYTHONPATH=src ./.venv/bin/python3 -m pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html --disable-warnings
 	mv htmlcov ./test_results/
 
-ci-test-acceptance: clean ci-bootstrap
+ci-test-acceptance: clean
 	mkdir -p ./test_results/robot \
 	&& cd ./test_results/robot; \
 	source ./.venv/bin/activate; \
