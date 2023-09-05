@@ -2,43 +2,44 @@ name: Python Build
 
 on:
   push:
-    branches: [ develop, main ]
+    branches: [develop, main, 'feature/**']
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-and-test:
     runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v3
-    - name: Install dependencies
-      run: make bootstrap
-    - name: Build
-      run: |
-        make build
-    - name: Unit Test and Coverage
-      run: |
-        make test-coverage
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: make ci-bootstrap
+
+      - name: Build
+        run: make build
+
+      - name: Unit Test and Coverage
+        run: make ci-test-coverage
 
   acceptance-test:
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: make bootstrap  
+      - name: Install dependencies
+        run: make ci-bootstrap
 
-    - name: Run acceptance tests
-      run: make test-acceptance 
+      - name: Run acceptance tests
+        run: make ci-test-acceptance
 
-    - name: Prepare results
-      if: always()
-      run: make prepare-results
+      - name: Prepare results
+        if: always()
+        run: make prepare-results
 
-    - name: Publish Tests
-      if: always()
-      uses: level-up-program-dev/actions-gh-pages@main
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./test_results
+      - name: Publish Tests
+        if: always()
+        uses: level-up-program-dev/actions-gh-pages@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./test_results
