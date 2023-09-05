@@ -1,3 +1,4 @@
+.ONESHELL:
 .PHONY: clean clean-test clean-pyc clean-build docs help
 .DEFAULT_GOAL := help
 define BROWSER_PYSCRIPT
@@ -55,6 +56,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -f output.xml
 
 bootstrap:
+	- python3 -m pip uninstall distro-info
 	python3 -m pip install -r requirements.txt
 
 build: clean ## builds source and wheel package
@@ -75,9 +77,8 @@ test-coverage: clean ## check code coverage quickly with the default Python
 	mv htmlcov ./test_results/
 
 test-acceptance: clean
-	mkdir -p ./test_results/robot \
-	&& cd ./test_results/robot \
-	&& PYTHONPATH=../../src python3 -m robot ../../tests/robot/
+	mkdir -p ./test_results/robot; \
+	python3 -m robot --pythonpath=./src --outputdir=./test_results/robot tests/robot/;
 
 prepare-results:
 	cp ./test_results/robot/report.html ./test_results/index.html
@@ -86,7 +87,18 @@ prepare-results:
 
 test-all: test-coverage test-acceptance
 
-cibuild: test-coverage test-acceptance
-
 run:
 	cd src && python3 -m levelup
+
+ci-bootstrap: ## Only use within GitHub Actions
+	python3 -m venv ./.venv --clear; \
+	./.venv/bin/python3 -m pip install -r requirements.txt;
+
+ci-test-coverage: clean ## Only use within GitHub Actions
+	mkdir -p ./test_results \
+	&& PYTHONPATH=src ./.venv/bin/python3 -m pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html --disable-warnings
+	mv htmlcov ./test_results/
+
+ci-test-acceptance: clean ## Only use within GitHub Actions
+	mkdir -p ./test_results/robot; \
+	./.venv/bin/python3 -m robot --pythonpath=./src --outputdir=./test_results/robot tests/robot/;
