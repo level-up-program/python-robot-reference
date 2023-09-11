@@ -31,7 +31,7 @@ jobs:
       run: make build
 
     - name: Unit Test and Coverage
-      run: make ci-test-coverage
+      run: make ci-test
 
   acceptance-test:
     runs-on: self-hosted
@@ -63,7 +63,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
       with:
-        path: ./test_results
+        path: ./testresults
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v2
