@@ -28,7 +28,7 @@ jobs:
       run: make ci-bootstrap
 
     - name: Build
-      run: make build
+      run: make ci-build
 
     - name: Unit Test and Coverage
       run: make ci-test
