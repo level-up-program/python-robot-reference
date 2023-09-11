@@ -90,14 +90,15 @@ test-all: test-coverage test-acceptance
 run:
 	cd src && python3 -m levelup
 
+ci-build:
+	echo "Intentionally not implemented"
+
 ci-bootstrap: ## Only use within GitHub Actions
 	python3 -m venv ./.venv --clear; \
 	./.venv/bin/python3 -m pip install -r requirements.txt;
 
-ci-test-coverage: clean ## Only use within GitHub Actions
-	mkdir -p ./test_results \
-	&& PYTHONPATH=src ./.venv/bin/python3 -m pytest --cov=src tests/ --cov-report html --html=./test_results/index.html --self-contained-html --disable-warnings
-	mv htmlcov ./test_results/
+ci-test: ## Only use within GitHub Actions
+	PYTHONPATH=src ./.venv/bin/python3 -m pytest --cov=src tests/ --disable-warnings
 
 ci-test-acceptance: clean ## Only use within GitHub Actions
 	mkdir -p ./test_results/robot; \
