@@ -2,7 +2,7 @@ name: Python Build
 
 on:
   push:
-    branches: [develop, main, 'feature/**', 'syncpoint-**']
+    branches: [develop, main]
   pull_request:
     branches: [main]
 
