@@ -35,6 +35,9 @@ jobs:
 
   acceptance-test:
     runs-on: self-hosted
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
     - uses: actions/checkout@v3
@@ -49,22 +52,15 @@ jobs:
       if: always()
       run: make prepare-results
 
-  publish-results:
-    if: always()
-    needs: acceptance-test
-    runs-on: self-hosted
-    
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
     - name: Setup Pages
+      if: always()
       uses: actions/configure-pages@v3
-    - name: Upload artifact
+    - name: Upload pages artifact
+      if: always()
       uses: actions/upload-pages-artifact@v2
       with:
         path: ./test_results
     - name: Deploy to GitHub Pages
+      if: always()
       id: deployment
       uses: actions/deploy-pages@v2
