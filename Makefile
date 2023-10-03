@@ -28,7 +28,7 @@ help:
 	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 reqs:
-	python3 -m poetry export --without-hashes --format=requirements.txt > requirements.txt
+	poetry export --without-hashes --format=requirements.txt > requirements.txt
 
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
@@ -94,12 +94,12 @@ ci-build:
 	echo "Intentionally not implemented"
 
 ci-bootstrap: ## Only use within GitHub Actions
-	python3 -m venv ./.venv --clear; \
-	./.venv/bin/python3 -m pip install -r requirements.txt;
+	python -m pip install --upgrade pip poetry
+	python3 -m pip install -r requirements.txt
 
 ci-test: ## Only use within GitHub Actions
-	PYTHONPATH=src ./.venv/bin/python3 -m pytest --cov=src tests/ --disable-warnings
+	PYTHONPATH=src python3 -m pytest --cov=src tests/ --disable-warnings
 
 ci-test-acceptance: clean ## Only use within GitHub Actions
 	mkdir -p ./test_results/robot; \
-	./.venv/bin/python3 -m robot --pythonpath=./src --outputdir=./test_results/robot tests/robot/;
+	python3 -m robot --pythonpath=./src --outputdir=./test_results/robot tests/robot/;

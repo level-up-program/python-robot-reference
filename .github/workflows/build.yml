@@ -20,9 +20,14 @@ concurrency:
 
 jobs:
   build-and-test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.11'
 
     - name: Install dependencies
       run: make ci-bootstrap
@@ -34,13 +39,18 @@ jobs:
       run: make ci-test
 
   acceptance-test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latestd
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.11'
 
     - name: Install dependencies
       run: make ci-bootstrap  
