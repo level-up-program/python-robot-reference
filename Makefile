@@ -17,7 +17,7 @@ BROWSER := python3 -c "$$BROWSER_PYSCRIPT"
 help:
 	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-bootstrap:  ## Installs python requirements globally on system. For use only within containerized environements
+bootstrap: ## Installs python requirements globally on system. For use only within containerized environements
 	python3 -m pip install -r requirements.txt --disable-pip-version-check --break-system-packages
 
 clean: clean-build clean-pyc clean-test
@@ -61,7 +61,7 @@ test-acceptance: clean ## Run acceptance tests with RobotFramework
 	mkdir -p ./test_results/robot; \
 	python3 -m robot --pythonpath=./src --outputdir=./test_results/robot tests/robot/;
 
-test-all: test-coverage test-acceptance  ## Run both unit and acceptance tests with coverage report
+test-all: test-coverage test-acceptance ## Run both unit and acceptance tests with coverage report
 
 prepare-results:
 	cp ./test_results/robot/report.html ./test_results/index.html
@@ -75,6 +75,7 @@ run: ## Run game as-is to explore functionality
 ## 
 ## DO NOT RUN ANYTHING BELOW THIS LINE !!!!!!!!
 ## 
+
 
 ## Installs python requirements into virtual environment
 bootstrap-venv:
