@@ -20,19 +20,6 @@ help:
 bootstrap:  ## Installs python requirements globally on system. For use only within containerized environements
 	python3 -m pip install -r requirements.txt --disable-pip-version-check --break-system-packages
 
-bootstrap-venv:  ## Installs python requirements into virtual environment
-	python3 -m pip install --upgrade pip poetry
-	poetry config virtualenvs.in-project true
-	- rm -rf ./.venv
-	poetry install
-
-bootstrap-venv-reqs:
-	poetry export --without-hashes --format=requirements.txt > requirements.txt
-
-shell:
-	- @test ! -d ./.venv && echo "Virtual environment not found. Please run 'make bootstrap-venv' to create it"
-	- @test -d ./.venv && poetry shell
-
 clean: clean-build clean-pyc clean-test
 
 clean-build:
@@ -83,6 +70,27 @@ prepare-results:
 
 run: ## Run game as-is to explore functionality
 	cd src && python3 -m levelup
+
+
+## 
+## DO NOT RUN ANYTHING BELOW THIS LINE !!!!!!!!
+## 
+
+## Installs python requirements into virtual environment
+bootstrap-venv:
+	python3 -m pip install --upgrade pip poetry
+	poetry config virtualenvs.in-project true
+	- rm -rf ./.venv
+	poetry install
+
+## Rebuilds requirements.txt from poetry.lock
+bootstrap-venv-reqs:
+	poetry export --without-hashes --format=requirements.txt > requirements.txt
+
+## Launches shell within virtual environment if venv is found
+shell:
+	- @test ! -d ./.venv && echo "Virtual environment not found. Please run 'make bootstrap-venv' to create it"
+	- @test -d ./.venv && poetry shell
 
 ## Only use within GitHub Actions
 ci-build:
