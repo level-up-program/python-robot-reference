@@ -1,6 +1,7 @@
 .ONESHELL:
-.PHONY: clean clean-test clean-pyc clean-build docs help
+.PHONY: clean clean-test clean-pyc clean-build build help
 .DEFAULT_GOAL := help
+
 
 define PRINT_HELP_PYSCRIPT
 import re, sys
@@ -12,7 +13,7 @@ for line in sys.stdin:
 		print("%-20s %s" % (target, help))
 endef
 export PRINT_HELP_PYSCRIPT
-BROWSER := python3 -c "$$BROWSER_PYSCRIPT"
+
 
 help:
 	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
