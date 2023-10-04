@@ -6,6 +6,8 @@ Make file contains commands needed.
 
 * `make build` Runs a build
 
-* `make test` Runs tests
+* `make test` Runs unit tests
+
+* `make test-acceptance` Runs acceptance tests
 
 * `make run` Runs the program
