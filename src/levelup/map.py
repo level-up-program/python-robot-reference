@@ -8,9 +8,14 @@ class Map ():
     positions = []
     size: Tuple[int, int] = (10, 10)
 
+    # Exists for easy testing
+    num_positions = size[0]*size[1]
+
     def __init__(self):
         self.create_positions()
 
+    # Helper function to create positions as part of our constructor
+    # Supports single responsiblity principle
     def create_positions(self) -> None:
         temp_pos = []
         for x in range(self.size[0]):
@@ -21,7 +26,7 @@ class Map ():
             temp_pos.append(y_range)
         self.positions = temp_pos
 
-    def is_position_valid(self, position :Position):
+    def is_position_valid(self, position :Position) -> bool:
         if position.x >= 0 and position.x < self.size[0] and position.y >= 0 and position.y < self.size[1]:
             return True
         else:

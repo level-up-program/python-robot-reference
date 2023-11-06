@@ -1,6 +1,6 @@
 from unittest import TestCase
 from levelup.controller import GameController
-from fake_character import FakeCharacter
+from tests.character_double import CharacterDouble
 from levelup.direction import Direction
 
 class TestGameController(TestCase):
@@ -18,26 +18,26 @@ class TestGameController(TestCase):
     def test_start_game_creates_map_and_enters_char(self):
         testobj = GameController()
         arbitrary_name = "ARBITRARY"
-        fake_char = FakeCharacter(arbitrary_name)
-        testobj.character = fake_char
+        mock_char = CharacterDouble(arbitrary_name)
+        testobj.character = mock_char
 
         testobj.start_game()
         
         self.assertIsNotNone(testobj.map)
-        self.assertTrue(fake_char.is_enter_map_called)
+        self.assertTrue(mock_char.is_enter_map_called)
         self.assertTrue(testobj.status.running)
         self.assertEqual(0, testobj.status.move_count)
 
     def test_move_calls_char_move(self):
         testobj = GameController()
         arbitrary_name = "ARBITRARY"
-        fake_char = FakeCharacter(arbitrary_name)
-        testobj.character = fake_char
+        mock_char = CharacterDouble(arbitrary_name)
+        testobj.character = mock_char
         arbitrary_direction = Direction.NORTH
 
         testobj.move(arbitrary_direction)
 
-        self.assertTrue(fake_char.is_move_called)
-        self.assertEqual(fake_char.last_move_direction, arbitrary_direction)
+        self.assertTrue(mock_char.is_move_called)
+        self.assertEqual(mock_char.last_move_direction, arbitrary_direction)
         
         

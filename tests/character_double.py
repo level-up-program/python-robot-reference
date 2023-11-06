@@ -1,9 +1,9 @@
 from levelup.map import Map
 from levelup.character import Character
-from levelup.controller import Direction
+from levelup.direction import Direction
 from levelup.position import Position
 
-class FakeCharacter (Character):
+class CharacterDouble (Character):
 
     is_move_called = False
     is_enter_map_called = False

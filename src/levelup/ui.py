@@ -1,6 +1,6 @@
 import logging
 from typing import Callable
-from levelup.controller import GameController, InvalidMoveException
+from levelup.controller import GameController
 from levelup.direction import Direction
 
 VALID_DIRECTIONS = [x.value for x in Direction]
@@ -18,6 +18,8 @@ class GameApp:
             response = input(f"\n{menu}\n> ")
             if validation_fn(response):
                 break
+            else:
+                print(f"{response} is an invalid input. Try again.")    
         return response
 
     def create_character(self):
@@ -35,6 +37,7 @@ class GameApp:
             self.controller.move(direction)
             print(f"You moved {direction.name}")
             print(self.controller.status)
+                
 
     def start(self):
         self.create_character()
