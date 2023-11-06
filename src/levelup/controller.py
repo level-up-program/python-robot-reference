@@ -24,26 +24,29 @@ class GameController:
         self.status = GameStatus()
 
     def start_game(self):
-        if self.character == None:
-            self.create_character(character_name="")
-        self.map = Map()
-        self.character.enter_map(self.map)
+        # TODO: implement method here and remove the print statement below
+        print("start_game method not yet implemented")            
 
+        # Status code is written for you
         self.status.running = True
         self.status.current_position = (self.character.current_position.x, self.character.current_position.y)
         self.status.move_count = 0
 
+    # Pre-written for you
     def create_character(self, character_name: str) -> None:
         self.character = Character(character_name)
         self.status.character_name = self.character.name
 
     def move(self, direction: Direction) -> None:
-        self.character.move(direction)
+        # TODO: implement method here and remove the print statement below
+        print("move method not yet implemented")
+
+        # Status code is written for you
         self.status.current_position = (self.character.current_position.x, self.character.current_position.y)
         self.status.move_count = self.status.move_count + 1
 
     ## ************************************************
-    ## METHODS THAT EXIST JUST TO HELP WITH TESTING 
+    ## METHODS THAT EXIST JUST TO HELP WITH TESTING -- PREWRITTEN FOR YOU
     ## ************************************************
     def set_character_position(self, xycoordinates: tuple) -> None:
         x = xycoordinates[0]

@@ -8,36 +8,39 @@ class TestGameController(TestCase):
         testobj = GameController()
         assert testobj.status != None
 
-    def test_create_character_updates_status(self):
-        testobj = GameController()
-        arbitrary_name = "ARBITRARY"
-        testobj.create_character(arbitrary_name)
-        self.assertEqual(arbitrary_name, testobj.status.character_name)
-        self.assertIsNotNone(testobj.character)
+    # Remove comments to run this test, which will motivate you to write the production method
+    # def test_create_character_updates_status(self):
+    #     testobj = GameController()
+    #     arbitrary_name = "ARBITRARY"
+    #     testobj.create_character(arbitrary_name)
+    #     self.assertEqual(arbitrary_name, testobj.status.character_name)
+    #     self.assertIsNotNone(testobj.character)
 
-    def test_start_game_creates_map_and_enters_char(self):
-        testobj = GameController()
-        arbitrary_name = "ARBITRARY"
-        mock_char = CharacterDouble(arbitrary_name)
-        testobj.character = mock_char
+    # # Remove comments to run this test, which will motivate you to write the production method
+    # def test_start_game_creates_map_and_enters_char(self):
+    #     testobj = GameController()
+    #     arbitrary_name = "ARBITRARY"
+    #     mock_char = CharacterDouble(arbitrary_name)
+    #     testobj.character = mock_char
 
-        testobj.start_game()
+    #     testobj.start_game()
         
-        self.assertIsNotNone(testobj.map)
-        self.assertTrue(mock_char.is_enter_map_called)
-        self.assertTrue(testobj.status.running)
-        self.assertEqual(0, testobj.status.move_count)
+    #     self.assertIsNotNone(testobj.map)
+    #     self.assertTrue(mock_char.is_enter_map_called)
+    #     self.assertTrue(testobj.status.running)
+    #     self.assertEqual(0, testobj.status.move_count)
 
-    def test_move_calls_char_move(self):
-        testobj = GameController()
-        arbitrary_name = "ARBITRARY"
-        mock_char = CharacterDouble(arbitrary_name)
-        testobj.character = mock_char
-        arbitrary_direction = Direction.NORTH
+    # # Remove comments to run this test, which will motivate you to write the production method
+    # def test_move_calls_char_move(self):
+    #     testobj = GameController()
+    #     arbitrary_name = "ARBITRARY"
+    #     mock_char = CharacterDouble(arbitrary_name)
+    #     testobj.character = mock_char
+    #     arbitrary_direction = Direction.NORTH
 
-        testobj.move(arbitrary_direction)
+    #     testobj.move(arbitrary_direction)
 
-        self.assertTrue(mock_char.is_move_called)
-        self.assertEqual(mock_char.last_move_direction, arbitrary_direction)
+    #     self.assertTrue(mock_char.is_move_called)
+    #     self.assertEqual(mock_char.last_move_direction, arbitrary_direction)
         
         

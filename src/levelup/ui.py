@@ -5,6 +5,7 @@ from levelup.direction import Direction
 
 VALID_DIRECTIONS = [x.value for x in Direction]
 
+# This is prewritten for you. You should only have to change it to make the text copy match what your prompts should say
 class GameApp:
 
     controller: GameController
