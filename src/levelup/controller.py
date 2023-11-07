@@ -6,19 +6,15 @@ from enum import Enum
 class GameStatus:
     character_name: str = "Character"
     move_count: int = 0
-    running: bool = False
+
+    def __str__(self) -> str:
+        return f"{self.character_name} moved {self.move_count} times."
 
 class Direction(Enum):
     NORTH = "n"
     SOUTH = "s"
     EAST = "e"
     WEST = "w"
-
-class CharacterNotFoundException(Exception):
-    pass
-
-class InvalidMoveException(Exception):
-    pass
 
 class GameController:
     status: GameStatus
