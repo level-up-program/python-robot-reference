@@ -27,7 +27,6 @@ class TestGameController(TestCase):
         
     #     self.assertIsNotNone(testobj.map)
     #     self.assertTrue(mock_char.is_enter_map_called)
-    #     self.assertTrue(testobj.status.running)
     #     self.assertEqual(0, testobj.status.move_count)
 
     # # Remove comments to run this test, which will motivate you to write the production method
