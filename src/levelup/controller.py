@@ -8,11 +8,13 @@ DEFAULT_CHARACTER_NAME = "Character"
 #TODO: ADD THINGS YOU NEED FOR STATUS
 @dataclass
 class GameStatus:
-    running: bool = False
     character_name: str = DEFAULT_CHARACTER_NAME
     # NOTE - Game status will have this as a tuple. The Position should probably be in a class
     current_position: tuple = (-100,-100)
     move_count: int = 0
+
+    def __str__(self) -> str:
+        return f"{self.character_name} is currently on {self.current_position} and moved {self.move_count} times."
 
 class Direction(Enum):
     NORTH = "n"
