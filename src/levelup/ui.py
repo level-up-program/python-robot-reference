@@ -4,7 +4,7 @@ from levelup.controller import GameController
 from levelup.direction import Direction
 
 VALID_DIRECTIONS = [x.value for x in Direction]
-
+VALID_COMMANDS = VALID_DIRECTIONS + ['q']
 # This is prewritten for you. You should only have to change it to make the text copy match what your prompts should say
 class GameApp:
 
@@ -31,9 +31,11 @@ class GameApp:
     def move_loop(self):
         while True:
             response = self.prompt(
-                f"Where would you like to go? {VALID_DIRECTIONS}\n(or ctrl+c to quit)",
-                lambda x: x in VALID_DIRECTIONS,
+                f"Where would you like to go? {VALID_DIRECTIONS}\n(or q to quit)",
+                lambda x: x in VALID_COMMANDS,
             )
+            if response == 'q':
+                self.quit()
             direction = Direction(response)
             self.controller.move(direction)
             print(f"You moved {direction.name}")
@@ -47,5 +49,5 @@ class GameApp:
         self.move_loop()
 
     def quit(self):
-        print(f"\n\n{self.controller.status}")
         print(f"{self.controller.status.character_name} started on {self.starting_pos}, ended on {self.controller.status.current_position} and moved {self.controller.status.move_count} times.")
+        quit()
