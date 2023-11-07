@@ -7,7 +7,6 @@ from levelup.position import Position
 
 
 class GameStatus:
-    running: bool = False
     character_name: str = ""
     current_position: tuple = (-100,-100)
     move_count: int = 0
@@ -29,7 +28,6 @@ class GameController:
         self.map = Map()
         self.character.enter_map(self.map)
 
-        self.status.running = True
         self.status.current_position = (self.character.current_position.x, self.character.current_position.y)
         self.status.move_count = 0
 
