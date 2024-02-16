@@ -25,7 +25,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
 
@@ -48,7 +48,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
 
@@ -64,13 +64,13 @@ jobs:
 
     - name: Setup Pages
       if: always()
-      uses: actions/configure-pages@v3
+      uses: actions/configure-pages@v4
     - name: Upload pages artifact
       if: always()
-      uses: actions/upload-pages-artifact@v2
+      uses: actions/upload-pages-artifact@v3
       with:
         path: ./test_results
     - name: Deploy to GitHub Pages
       if: always()
       id: deployment
-      uses: actions/deploy-pages@v2
+      uses: actions/deploy-pages@v4
